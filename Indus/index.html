@@ -1,0 +1,1806 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IndusMart — India's #1 Industrial Marketplace</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,700&family=Barlow+Condensed:wght@600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ================================================================
+   INDUSMART PRO — Design System
+   Navy #0A1628 | Blue #1565C0 | Orange #FF6B00 | White #FFF
+================================================================ */
+:root {
+  --navy: #0A1628;
+  --navy-light: #162240;
+  --navy-mid: #1E3A5F;
+  --blue: #1565C0;
+  --blue-light: #1E7BE8;
+  --blue-pale: #E3F0FF;
+  --blue-pale2: #C5DCFF;
+  --orange: #FF6B00;
+  --orange-light: #FF8C2E;
+  --orange-pale: #FFF0E0;
+  --orange-deep: #E05900;
+  --white: #FFFFFF;
+  --light: #F4F7FC;
+  --light2: #ECF1FA;
+  --gray: #8A97AD;
+  --gray-dark: #4A5568;
+  --text: #0D1E3A;
+  --text-muted: #5A6E8C;
+  --border: #DDE5F0;
+  --success: #16A34A;
+  --success-pale: #DCFCE7;
+  --warning: #D97706;
+  --warning-pale: #FEF3C7;
+  --danger: #DC2626;
+  --shadow-xs: 0 1px 4px rgba(10,22,40,0.06);
+  --shadow-sm: 0 2px 10px rgba(10,22,40,0.09);
+  --shadow: 0 4px 24px rgba(10,22,40,0.12);
+  --shadow-lg: 0 8px 48px rgba(10,22,40,0.18);
+  --shadow-xl: 0 16px 64px rgba(10,22,40,0.22);
+  --radius-sm: 6px;
+  --radius: 10px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --font-display: 'Barlow Condensed', sans-serif;
+  --font-body: 'Barlow', sans-serif;
+  --font-ui: 'Inter', sans-serif;
+  --ease: cubic-bezier(0.4,0,0.2,1);
+  --transition: all 0.25s var(--ease);
+  --transition-slow: all 0.45s var(--ease);
+}
+
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:var(--font-body);font-size:15px;color:var(--text);background:var(--light);line-height:1.6;overflow-x:hidden;}
+
+/* ---- PAGE SYSTEM ---- */
+.page{display:none;animation:fadeIn 0.3s ease;}
+.page.active{display:block;}
+@keyframes fadeIn{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:translateY(0);}}
+
+/* ---- SCROLLBAR ---- */
+::-webkit-scrollbar{width:5px;height:5px;}
+::-webkit-scrollbar-track{background:var(--light2);}
+::-webkit-scrollbar-thumb{background:var(--blue);border-radius:3px;}
+
+/* ================================================================ HEADER ================================================================ */
+.site-header{position:sticky;top:0;z-index:1000;background:var(--navy);box-shadow:0 2px 24px rgba(0,0,0,0.32);}
+.header-top{background:var(--navy-light);padding:5px 0;font-size:11.5px;color:rgba(255,255,255,0.55);font-family:var(--font-ui);}
+.header-top a{color:rgba(255,255,255,0.55);text-decoration:none;transition:var(--transition);}
+.header-top a:hover{color:var(--orange);}
+.header-main{padding:12px 0;display:flex;align-items:center;gap:18px;}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;cursor:pointer;flex-shrink:0;}
+.logo-icon{width:38px;height:38px;background:linear-gradient(135deg,var(--orange),#FF9A00);border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:900;color:white;font-family:var(--font-display);box-shadow:0 4px 12px rgba(255,107,0,0.4);}
+.logo-text{font-family:var(--font-display);font-size:24px;font-weight:900;color:white;letter-spacing:0.5px;line-height:1;}
+.logo-text span{color:var(--orange);}
+.logo-sub{font-size:9px;font-family:var(--font-ui);color:rgba(255,255,255,0.4);letter-spacing:1px;text-transform:uppercase;}
+.header-search{flex:1;max-width:540px;position:relative;}
+.header-search input{width:100%;padding:11px 120px 11px 16px;border:2px solid transparent;border-radius:8px;font-family:var(--font-body);font-size:14px;background:rgba(255,255,255,0.1);color:white;outline:none;transition:var(--transition);}
+.header-search input::placeholder{color:rgba(255,255,255,0.45);}
+.header-search input:focus{background:white;color:var(--text);border-color:var(--orange);}
+.header-search input:focus::placeholder{color:var(--gray);}
+.search-btn{position:absolute;right:0;top:0;bottom:0;padding:0 20px;background:var(--orange);border:none;border-radius:0 8px 8px 0;color:white;font-weight:700;font-size:13px;cursor:pointer;font-family:var(--font-body);transition:var(--transition);}
+.search-btn:hover{background:var(--orange-deep);}
+.header-actions{display:flex;align-items:center;gap:10px;margin-left:auto;}
+.btn-header{padding:9px 16px;background:transparent;border:1.5px solid rgba(255,255,255,0.2);border-radius:7px;color:rgba(255,255,255,0.85);font-family:var(--font-ui);font-size:12.5px;font-weight:500;cursor:pointer;transition:var(--transition);white-space:nowrap;}
+.btn-header:hover{border-color:rgba(255,255,255,0.5);color:white;}
+.btn-quote-header{padding:9px 18px;background:var(--orange);border:none;border-radius:7px;color:white;font-family:var(--font-ui);font-size:12.5px;font-weight:700;cursor:pointer;transition:var(--transition);}
+.btn-quote-header:hover{background:var(--orange-deep);box-shadow:0 4px 16px rgba(255,107,0,0.35);}
+
+/* Header Nav */
+.header-nav{background:var(--navy-mid);border-top:1px solid rgba(255,255,255,0.08);}
+.nav-list{display:flex;align-items:center;list-style:none;gap:0;padding:0;}
+.nav-list li>a{display:flex;align-items:center;gap:6px;padding:12px 18px;color:rgba(255,255,255,0.78);font-family:var(--font-ui);font-size:13px;font-weight:500;text-decoration:none;cursor:pointer;transition:var(--transition);border-bottom:2px solid transparent;white-space:nowrap;}
+.nav-list li>a:hover,.nav-list li>a.active{color:white;border-bottom-color:var(--orange);}
+
+/* Mega Menu */
+.mega-wrap{position:relative;}
+.mega-menu{position:absolute;top:100%;left:0;width:600px;background:white;border-radius:0 0 var(--radius-lg) var(--radius-lg);box-shadow:var(--shadow-xl);padding:20px;display:none;grid-template-columns:1fr 1fr 1fr;gap:6px;z-index:999;border-top:3px solid var(--orange);}
+.mega-wrap:hover .mega-menu{display:grid;}
+.mega-item{display:flex;align-items:center;gap:12px;padding:11px 14px;border-radius:var(--radius-sm);cursor:pointer;transition:var(--transition);text-decoration:none;}
+.mega-item:hover{background:var(--light);transform:translateX(4px);}
+.mega-icon{width:40px;height:40px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;}
+.mega-label{font-family:var(--font-body);font-size:13.5px;font-weight:700;color:var(--text);}
+.mega-count{font-size:11px;color:var(--text-muted);font-family:var(--font-ui);margin-top:1px;}
+
+/* ================================================================ LAYOUT HELPERS ================================================================ */
+.container{max-width:1240px;margin:0 auto;padding:0 24px;}
+.flex-between{display:flex;align-items:center;justify-content:space-between;}
+.grid{display:grid;}
+.grid-2{grid-template-columns:repeat(2,1fr);gap:20px;}
+.grid-3{grid-template-columns:repeat(3,1fr);gap:20px;}
+.grid-4{grid-template-columns:repeat(4,1fr);gap:20px;}
+.grid-5{grid-template-columns:repeat(5,1fr);gap:16px;}
+.grid-6{grid-template-columns:repeat(6,1fr);gap:16px;}
+
+/* ================================================================ SECTION ================================================================ */
+.section{padding:60px 0;}
+.section-sm{padding:40px 0;}
+.section-white{background:white;}
+.section-light{background:var(--light);}
+.section-muted{background:var(--light2);}
+.section-dark{background:var(--navy);}
+.section-header{margin-bottom:40px;}
+.section-header h2{font-family:var(--font-display);font-size:36px;font-weight:900;color:var(--text);line-height:1.1;margin-bottom:8px;}
+.section-header p{font-size:15px;color:var(--text-muted);font-family:var(--font-ui);}
+.section-header.center{text-align:center;}
+.section-link{font-family:var(--font-ui);font-size:13px;font-weight:600;color:var(--blue);text-decoration:none;cursor:pointer;white-space:nowrap;transition:var(--transition);}
+.section-link:hover{color:var(--orange);gap:8px;}
+
+/* ================================================================ BREADCRUMB ================================================================ */
+.breadcrumb-bar{background:white;border-bottom:1px solid var(--border);padding:12px 0;}
+.breadcrumb{display:flex;align-items:center;gap:8px;list-style:none;font-family:var(--font-ui);font-size:12.5px;}
+.breadcrumb li{color:var(--text-muted);}
+.breadcrumb li+li::before{content:"›";margin-right:8px;color:var(--border);}
+.breadcrumb li a{color:var(--blue);text-decoration:none;cursor:pointer;}
+.breadcrumb li a:hover{text-decoration:underline;}
+.breadcrumb li.active{color:var(--text);font-weight:600;}
+
+/* ================================================================ BUTTONS ================================================================ */
+.btn{display:inline-flex;align-items:center;gap:8px;padding:11px 24px;border-radius:var(--radius-sm);font-family:var(--font-ui);font-size:13.5px;font-weight:600;cursor:pointer;transition:var(--transition);text-decoration:none;border:none;white-space:nowrap;}
+.btn-primary{background:var(--blue);color:white;}
+.btn-primary:hover{background:var(--blue-light);box-shadow:0 4px 16px rgba(21,101,192,0.35);}
+.btn-orange{background:var(--orange);color:white;}
+.btn-orange:hover{background:var(--orange-deep);box-shadow:0 4px 16px rgba(255,107,0,0.35);}
+.btn-outline{background:transparent;color:var(--blue);border:1.5px solid var(--blue);}
+.btn-outline:hover{background:var(--blue-pale);color:var(--blue);}
+.btn-ghost{background:transparent;color:var(--text-muted);border:1.5px solid var(--border);}
+.btn-ghost:hover{background:var(--light2);border-color:var(--gray);color:var(--text);}
+.btn-sm{padding:7px 16px;font-size:12px;}
+.btn-lg{padding:15px 32px;font-size:15px;}
+.btn-block{width:100%;justify-content:center;}
+.btn-icon{width:38px;height:38px;padding:0;border-radius:8px;justify-content:center;font-size:16px;}
+
+/* Inquiry / Quote button (prominent) */
+.btn-inquiry{display:inline-flex;align-items:center;gap:10px;padding:14px 32px;background:linear-gradient(135deg,var(--orange),#FF9A00);color:white;border:none;border-radius:var(--radius-sm);font-family:var(--font-ui);font-size:15px;font-weight:700;cursor:pointer;transition:var(--transition);box-shadow:0 6px 20px rgba(255,107,0,0.35);}
+.btn-inquiry:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(255,107,0,0.45);background:linear-gradient(135deg,var(--orange-deep),var(--orange));}
+
+/* ================================================================ BADGES ================================================================ */
+.badge{display:inline-flex;align-items:center;padding:3px 9px;border-radius:20px;font-size:11px;font-weight:600;font-family:var(--font-ui);white-space:nowrap;}
+.badge-blue{background:var(--blue-pale);color:var(--blue);}
+.badge-orange{background:var(--orange-pale);color:var(--orange);}
+.badge-green{background:var(--success-pale);color:var(--success);}
+.badge-yellow{background:var(--warning-pale);color:var(--warning);}
+.badge-navy{background:var(--navy);color:white;}
+.badge-hot{background:linear-gradient(135deg,#FF4D00,#FF8C2E);color:white;}
+
+/* ================================================================ HERO ================================================================ */
+.hero{background:linear-gradient(135deg,var(--navy) 0%,var(--navy-mid) 60%,#1A3060 100%);padding:70px 0 60px;overflow:hidden;position:relative;}
+.hero::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.025'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,107,0,0.15);border:1px solid rgba(255,107,0,0.3);border-radius:20px;padding:6px 16px;font-family:var(--font-ui);font-size:12px;font-weight:600;color:var(--orange-light);margin-bottom:20px;}
+.hero h1{font-family:var(--font-display);font-size:58px;font-weight:900;color:white;line-height:1.05;margin-bottom:16px;}
+.hero h1 span{color:var(--orange);}
+.hero p{font-size:16px;color:rgba(255,255,255,0.72);font-family:var(--font-ui);margin-bottom:28px;line-height:1.7;}
+.hero-search{display:flex;background:white;border-radius:10px;overflow:hidden;box-shadow:0 8px 32px rgba(0,0,0,0.25);max-width:520px;margin-bottom:32px;}
+.hero-search input{flex:1;padding:15px 20px;border:none;outline:none;font-family:var(--font-body);font-size:15px;color:var(--text);}
+.hero-search button{padding:0 28px;background:var(--orange);border:none;color:white;font-weight:800;font-size:14px;cursor:pointer;font-family:var(--font-display);font-size:17px;transition:var(--transition);}
+.hero-search button:hover{background:var(--orange-deep);}
+.hero-stats{display:flex;gap:28px;flex-wrap:wrap;}
+.hero-stat{display:flex;align-items:center;gap:10px;}
+.hero-stat-icon{width:40px;height:40px;border-radius:10px;background:rgba(255,255,255,0.1);display:flex;align-items:center;justify-content:center;font-size:18px;}
+.hero-stat strong{display:block;font-family:var(--font-display);font-size:20px;font-weight:800;color:white;line-height:1;}
+.hero-stat span{font-size:11.5px;color:rgba(255,255,255,0.55);font-family:var(--font-ui);}
+.hero-visual{position:relative;}
+.hero-card{background:white;border-radius:var(--radius-lg);padding:20px 24px;box-shadow:var(--shadow-xl);position:absolute;}
+.hero-card-1{bottom:24px;left:-20px;}
+.hero-card-2{top:24px;right:-10px;background:var(--orange);}
+.hero-main-img{background:rgba(255,255,255,0.05);border-radius:var(--radius-xl);height:380px;display:flex;align-items:center;justify-content:center;font-size:120px;border:1px solid rgba(255,255,255,0.1);}
+
+/* ================================================================ CATEGORY CARDS ================================================================ */
+.cat-card{background:white;border:1.5px solid var(--border);border-radius:var(--radius-lg);padding:24px 20px;text-align:center;cursor:pointer;transition:var(--transition);text-decoration:none;display:block;}
+.cat-card:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:var(--blue);background:white;}
+.cat-card-icon{width:64px;height:64px;border-radius:14px;margin:0 auto 14px;display:flex;align-items:center;justify-content:center;font-size:30px;transition:var(--transition);}
+.cat-card:hover .cat-card-icon{transform:scale(1.1);}
+.cat-card-name{font-family:var(--font-body);font-size:14px;font-weight:700;color:var(--text);margin-bottom:4px;}
+.cat-card-count{font-size:11.5px;color:var(--text-muted);font-family:var(--font-ui);}
+
+/* ================================================================ INDUSTRY CARDS ================================================================ */
+.industry-card{background:white;border-radius:var(--radius-lg);overflow:hidden;cursor:pointer;transition:var(--transition);text-decoration:none;display:block;border:1px solid var(--border);}
+.industry-card:hover{transform:translateY(-5px);box-shadow:var(--shadow-lg);}
+.industry-card-img{height:160px;display:flex;align-items:center;justify-content:center;font-size:56px;position:relative;overflow:hidden;}
+.industry-card-img::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.45),transparent);}
+.industry-card-badge{position:absolute;top:12px;right:12px;z-index:1;background:rgba(255,255,255,0.15);backdrop-filter:blur(8px);color:white;border:1px solid rgba(255,255,255,0.25);padding:4px 10px;border-radius:20px;font-size:11px;font-family:var(--font-ui);font-weight:600;}
+.industry-card-body{padding:16px 20px;}
+.industry-card-name{font-family:var(--font-display);font-size:19px;font-weight:800;color:var(--text);margin-bottom:4px;}
+.industry-card-count{font-size:12.5px;color:var(--text-muted);font-family:var(--font-ui);}
+
+/* ================================================================ PRODUCT CARDS ================================================================ */
+.product-card{background:white;border:1.5px solid var(--border);border-radius:var(--radius-lg);overflow:hidden;transition:var(--transition);cursor:pointer;}
+.product-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);border-color:var(--blue-pale2);}
+.pc-img{height:180px;background:var(--light2);display:flex;align-items:center;justify-content:center;font-size:64px;position:relative;overflow:hidden;}
+.pc-img-bg{position:absolute;inset:0;opacity:0.06;font-size:120px;display:flex;align-items:center;justify-content:center;}
+.pc-actions{position:absolute;top:10px;right:10px;display:flex;flex-direction:column;gap:6px;opacity:0;transition:var(--transition);}
+.product-card:hover .pc-actions{opacity:1;}
+.pc-action-btn{width:34px;height:34px;background:white;border:none;border-radius:8px;cursor:pointer;font-size:15px;box-shadow:var(--shadow-sm);transition:var(--transition);display:flex;align-items:center;justify-content:center;}
+.pc-action-btn:hover{background:var(--blue-pale);transform:scale(1.08);}
+.pc-body{padding:16px 16px 12px;}
+.pc-brand{font-size:11px;font-weight:700;color:var(--blue);font-family:var(--font-ui);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:4px;}
+.pc-name{font-family:var(--font-body);font-size:15px;font-weight:700;color:var(--text);margin-bottom:8px;line-height:1.3;}
+.pc-rating{display:flex;align-items:center;gap:5px;font-size:12px;color:var(--text-muted);font-family:var(--font-ui);margin-bottom:10px;}
+.stars{color:#F59E0B;letter-spacing:1px;}
+.pc-price{font-family:var(--font-display);font-size:22px;font-weight:800;color:var(--text);}
+.pc-price span{font-size:13px;font-weight:500;color:var(--text-muted);font-family:var(--font-ui);}
+.pc-footer{padding:12px 16px;border-top:1px solid var(--border);display:flex;gap:8px;align-items:center;}
+.btn-quote-sm{flex:1;padding:9px 12px;background:var(--orange);border:none;border-radius:6px;color:white;font-weight:700;font-size:12.5px;cursor:pointer;transition:var(--transition);font-family:var(--font-ui);}
+.btn-quote-sm:hover{background:var(--orange-deep);}
+.btn-detail-sm{width:36px;height:36px;background:var(--light2);border:none;border-radius:6px;cursor:pointer;font-size:15px;transition:var(--transition);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.btn-detail-sm:hover{background:var(--blue-pale);color:var(--blue);}
+
+/* ================================================================ SIDEBAR / FILTER ================================================================ */
+.layout-with-sidebar{display:grid;grid-template-columns:260px 1fr;gap:24px;align-items:flex-start;}
+.sidebar{position:sticky;top:80px;}
+.sidebar-card{background:white;border:1.5px solid var(--border);border-radius:var(--radius-lg);overflow:hidden;}
+.sidebar-section{padding:18px 20px;border-bottom:1px solid var(--border);}
+.sidebar-section:last-child{border-bottom:none;}
+.sidebar-title{font-family:var(--font-ui);font-size:12px;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.8px;margin-bottom:14px;}
+.filter-list{display:flex;flex-direction:column;gap:10px;}
+.filter-item{display:flex;align-items:center;justify-content:space-between;cursor:pointer;padding:4px 0;}
+.filter-item label{display:flex;align-items:center;gap:8px;cursor:pointer;font-family:var(--font-ui);font-size:13px;color:var(--text);flex:1;}
+.filter-item input[type=checkbox]{accent-color:var(--blue);width:15px;height:15px;}
+.filter-count{font-size:11.5px;color:var(--text-muted);font-family:var(--font-ui);}
+.cat-nav-list{list-style:none;}
+.cat-nav-item a{display:flex;align-items:center;justify-content:space-between;padding:9px 12px;border-radius:var(--radius-sm);font-family:var(--font-ui);font-size:13px;color:var(--text);text-decoration:none;cursor:pointer;transition:var(--transition);margin-bottom:2px;}
+.cat-nav-item a:hover{background:var(--blue-pale);color:var(--blue);}
+.cat-nav-item a.active{background:var(--blue-pale);color:var(--blue);font-weight:700;}
+.cat-nav-item .item-count{font-size:11px;background:var(--light2);border-radius:20px;padding:2px 8px;}
+.price-range-inputs{display:flex;gap:10px;margin-bottom:12px;}
+.price-range-inputs input{flex:1;padding:8px 10px;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-family:var(--font-ui);font-size:12px;color:var(--text);outline:none;}
+.price-range-inputs input:focus{border-color:var(--blue);}
+
+/* ================================================================ TESTIMONIALS ================================================================ */
+.testimonial-card{background:white;border-radius:var(--radius-lg);padding:28px;box-shadow:var(--shadow-sm);border:1px solid var(--border);position:relative;transition:var(--transition);}
+.testimonial-card:hover{transform:translateY(-3px);box-shadow:var(--shadow);}
+.tc-quote-mark{font-family:Georgia,serif;font-size:72px;line-height:0.8;color:var(--blue-pale2);margin-bottom:16px;display:block;}
+.tc-text{font-family:var(--font-body);font-size:15px;color:var(--text);line-height:1.7;margin-bottom:20px;font-style:italic;}
+.tc-author{display:flex;align-items:center;gap:12px;}
+.tc-avatar{width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-size:18px;font-weight:800;color:white;flex-shrink:0;}
+.tc-name{font-family:var(--font-body);font-size:14px;font-weight:700;color:var(--text);}
+.tc-role{font-size:12px;color:var(--text-muted);font-family:var(--font-ui);}
+.tc-rating{margin-left:auto;color:#F59E0B;font-size:14px;}
+
+/* ================================================================ WHY CARDS ================================================================ */
+.why-card{background:white;border-radius:var(--radius-lg);padding:28px;text-align:center;border:1px solid var(--border);transition:var(--transition);}
+.why-card:hover{transform:translateY(-4px);box-shadow:var(--shadow);}
+.why-icon{width:60px;height:60px;border-radius:14px;margin:0 auto 16px;display:flex;align-items:center;justify-content:center;font-size:28px;}
+.why-card h4{font-family:var(--font-display);font-size:20px;font-weight:800;color:var(--text);margin-bottom:8px;}
+.why-card p{font-size:13.5px;color:var(--text-muted);font-family:var(--font-ui);line-height:1.7;}
+
+/* ================================================================ STATS COUNTER ================================================================ */
+.stats-section{background:var(--navy);padding:50px 0;}
+.stat-item{text-align:center;}
+.stat-value{font-family:var(--font-display);font-size:48px;font-weight:900;color:white;line-height:1;}
+.stat-value span{color:var(--orange);}
+.stat-label{font-family:var(--font-ui);font-size:13.5px;color:rgba(255,255,255,0.6);margin-top:6px;}
+
+/* ================================================================ PRODUCT DETAIL ================================================================ */
+.product-detail-grid{display:grid;grid-template-columns:1fr 1.15fr 290px;gap:24px;align-items:start;}
+.product-gallery-wrap .main-img{height:340px;background:var(--light2);border-radius:var(--radius-lg);display:flex;align-items:center;justify-content:center;font-size:100px;margin-bottom:12px;border:1.5px solid var(--border);}
+.thumb-strip{display:flex;gap:8px;}
+.thumb{width:70px;height:70px;border-radius:var(--radius-sm);background:var(--light2);display:flex;align-items:center;justify-content:center;font-size:26px;cursor:pointer;border:2px solid transparent;transition:var(--transition);}
+.thumb.active,.thumb:hover{border-color:var(--blue);background:var(--blue-pale);}
+.product-info-card{background:white;border:1.5px solid var(--border);border-radius:var(--radius-lg);padding:28px;}
+.product-title{font-family:var(--font-display);font-size:30px;font-weight:900;color:var(--text);margin-bottom:10px;line-height:1.1;}
+.product-price-big{font-family:var(--font-display);font-size:38px;font-weight:900;color:var(--text);}
+.product-price-big span{font-size:16px;font-weight:500;color:var(--text-muted);font-family:var(--font-ui);}
+.spec-table{width:100%;border-collapse:collapse;}
+.spec-table tr:nth-child(even){background:var(--light);}
+.spec-table td{padding:9px 14px;font-family:var(--font-ui);font-size:13px;border:1px solid var(--border);}
+.spec-table td:first-child{font-weight:600;color:var(--text-muted);width:40%;}
+
+/* Tabs */
+.tab-nav{display:flex;border-bottom:2px solid var(--border);margin-bottom:20px;gap:4px;}
+.tab-btn{padding:10px 20px;background:none;border:none;border-bottom:2.5px solid transparent;margin-bottom:-2px;font-family:var(--font-ui);font-size:13.5px;font-weight:600;color:var(--text-muted);cursor:pointer;transition:var(--transition);}
+.tab-btn.active{color:var(--blue);border-bottom-color:var(--blue);}
+.tab-content{display:none;}
+.tab-content.active{display:block;}
+
+/* Quote Panel */
+.quote-panel{background:white;border:1.5px solid var(--border);border-radius:var(--radius-lg);padding:22px;position:sticky;top:80px;}
+.quote-panel-title{font-family:var(--font-display);font-size:18px;font-weight:800;margin-bottom:16px;color:var(--text);}
+.form-group{margin-bottom:14px;}
+.form-label{display:block;font-family:var(--font-ui);font-size:12px;font-weight:700;color:var(--text-muted);margin-bottom:5px;text-transform:uppercase;letter-spacing:0.4px;}
+.form-control{width:100%;padding:10px 14px;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-family:var(--font-ui);font-size:13.5px;color:var(--text);outline:none;transition:var(--transition);background:white;}
+.form-control:focus{border-color:var(--blue);box-shadow:0 0 0 3px var(--blue-pale);}
+textarea.form-control{resize:vertical;}
+.form-select{width:100%;padding:10px 14px;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-family:var(--font-ui);font-size:13.5px;color:var(--text);outline:none;background:white;cursor:pointer;}
+.seller-mini{background:var(--light);border-radius:var(--radius-sm);padding:14px;margin-top:14px;font-family:var(--font-ui);font-size:13px;}
+
+/* ================================================================ INQUIRY PAGE ================================================================ */
+.inquiry-layout{display:grid;grid-template-columns:340px 1fr;gap:32px;max-width:980px;margin:0 auto;}
+.product-preview-side{background:white;border:1.5px solid var(--border);border-radius:var(--radius-lg);padding:28px;position:sticky;top:80px;}
+.inquiry-form-side{background:white;border:1.5px solid var(--border);border-radius:var(--radius-lg);padding:32px;}
+.upload-zone{border:2px dashed var(--border);border-radius:var(--radius-sm);padding:24px;text-align:center;cursor:pointer;transition:var(--transition);}
+.upload-zone:hover{border-color:var(--blue);background:var(--blue-pale);}
+.req{color:var(--danger);}
+
+/* ================================================================ FOOTER ================================================================ */
+.site-footer{background:var(--navy);color:white;padding:60px 0 0;}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;padding-bottom:48px;}
+.footer-brand p{font-size:13.5px;color:rgba(255,255,255,0.55);font-family:var(--font-ui);line-height:1.8;margin:16px 0 20px;}
+.footer-title{font-family:var(--font-ui);font-size:12px;font-weight:700;color:var(--orange);text-transform:uppercase;letter-spacing:1px;margin-bottom:16px;}
+.footer-links{list-style:none;display:flex;flex-direction:column;gap:10px;}
+.footer-links a{color:rgba(255,255,255,0.6);text-decoration:none;font-family:var(--font-ui);font-size:13.5px;cursor:pointer;transition:var(--transition);}
+.footer-links a:hover{color:white;}
+.footer-bottom{border-top:1px solid rgba(255,255,255,0.1);padding:18px 0;display:flex;align-items:center;justify-content:space-between;font-family:var(--font-ui);font-size:12.5px;color:rgba(255,255,255,0.4);}
+.social-links{display:flex;gap:10px;}
+.social-btn{width:36px;height:36px;border-radius:8px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;font-size:15px;cursor:pointer;transition:var(--transition);text-decoration:none;color:rgba(255,255,255,0.7);}
+.social-btn:hover{background:var(--orange);border-color:var(--orange);color:white;}
+
+/* ================================================================ TOAST ================================================================ */
+.toast-container{position:fixed;bottom:24px;right:24px;z-index:9999;display:flex;flex-direction:column;gap:10px;}
+.toast{padding:14px 20px;border-radius:var(--radius-sm);font-family:var(--font-ui);font-size:13.5px;font-weight:500;color:white;box-shadow:var(--shadow-lg);animation:slideIn 0.3s ease;display:flex;align-items:center;gap:10px;}
+.toast-success{background:var(--success);}
+.toast-info{background:var(--blue);}
+.toast-warn{background:var(--warning);}
+@keyframes slideIn{from{transform:translateX(100%);opacity:0;}to{transform:translateX(0);opacity:1;}}
+
+/* ================================================================ MISC ================================================================ */
+.text-center{text-align:center;}
+.text-muted{color:var(--text-muted);}
+.text-sm{font-size:13px;}
+.mt-8{margin-top:8px;}
+.mt-16{margin-top:16px;}
+.mt-24{margin-top:24px;}
+.mt-32{margin-top:32px;}
+.mb-8{margin-bottom:8px;}
+.mb-16{margin-bottom:16px;}
+.mb-24{margin-bottom:24px;}
+.mb-32{margin-bottom:32px;}
+.divider{border:none;border-top:1px solid var(--border);margin:20px 0;}
+.tag{display:inline-flex;align-items:center;padding:4px 12px;background:var(--light2);border-radius:20px;font-size:12px;font-family:var(--font-ui);color:var(--text-muted);margin:3px;cursor:pointer;transition:var(--transition);}
+.tag:hover,.tag.active{background:var(--blue-pale);color:var(--blue);}
+.pagination{display:flex;gap:4px;align-items:center;}
+.pagination a{width:34px;height:34px;display:flex;align-items:center;justify-content:center;border-radius:6px;border:1.5px solid var(--border);font-family:var(--font-ui);font-size:13px;font-weight:600;color:var(--text-muted);cursor:pointer;transition:var(--transition);text-decoration:none;}
+.pagination a:hover,.pagination a.active{background:var(--blue);border-color:var(--blue);color:white;}
+.review-card{padding:18px;border:1px solid var(--border);border-radius:var(--radius-sm);margin-bottom:12px;}
+.verified-badge{background:var(--success-pale);color:var(--success);font-size:11px;font-family:var(--font-ui);padding:2px 8px;border-radius:20px;font-weight:600;}
+
+/* Trust bar */
+.trust-bar{background:var(--navy-mid);padding:12px 0;border-top:1px solid rgba(255,255,255,0.08);}
+.trust-items{display:flex;align-items:center;justify-content:center;gap:40px;flex-wrap:wrap;}
+.trust-item{display:flex;align-items:center;gap:8px;font-family:var(--font-ui);font-size:12.5px;color:rgba(255,255,255,0.65);}
+.trust-item strong{color:white;font-weight:600;}
+
+/* Responsive basics */
+@media(max-width:1024px){
+  .product-detail-grid{grid-template-columns:1fr 1fr;}
+  .quote-panel-sticky{position:relative;top:0;}
+  .footer-grid{grid-template-columns:1fr 1fr;}
+}
+@media(max-width:768px){
+  .layout-with-sidebar{grid-template-columns:1fr;}
+  .grid-4,.grid-3{grid-template-columns:repeat(2,1fr);}
+  .grid-6{grid-template-columns:repeat(3,1fr);}
+  .grid-2{grid-template-columns:1fr;}
+  .hero h1{font-size:36px;}
+  .inquiry-layout{grid-template-columns:1fr;}
+  .product-detail-grid{grid-template-columns:1fr;}
+  .header-top,.header-nav{display:none;}
+  .hero-stats{gap:16px;}
+  .footer-grid{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+
+<!-- ========== SHARED HEADER ========== -->
+<header class="site-header">
+  <div class="header-top">
+    <div class="container flex-between">
+      <div style="display:flex;gap:24px;">
+        <span>📞 +91 98765 43210</span>
+        <span>✉️ info@indusmart.in</span>
+        <span>🕐 Mon–Sat 9AM–7PM IST</span>
+      </div>
+      <div style="display:flex;gap:20px;">
+        <a href="#">Become a Supplier</a>
+        <a href="#">Help Center</a>
+        <a href="#" style="color:var(--orange);">GST Available</a>
+      </div>
+    </div>
+  </div>
+  <div class="container header-main">
+    <a class="logo" onclick="nav('home')">
+      <div class="logo-icon">I</div>
+      <div>
+        <div class="logo-text">Indus<span>Mart</span></div>
+        <div class="logo-sub">Industrial Marketplace</div>
+      </div>
+    </a>
+    <div class="header-search" style="flex:1;max-width:540px;position:relative;">
+      <input type="text" placeholder="Search products, categories, brands...">
+      <button class="search-btn">🔍 Search</button>
+    </div>
+    <div class="header-actions">
+      <button class="btn-header" onclick="nav('home')">👤 Login</button>
+      <button class="btn-quote-header" onclick="nav('inquiry')">📋 Request Quote</button>
+    </div>
+  </div>
+  <nav class="header-nav">
+    <div class="container">
+      <ul class="nav-list">
+        <li class="mega-wrap">
+          <a style="position:relative;cursor:pointer;">☰ All Categories ▾
+            <div class="mega-menu">
+              <a class="mega-item" onclick="nav('products','Cement & Concrete','Construction')">
+                <div class="mega-icon" style="background:#E3F0FF;">🏗️</div>
+                <div><div class="mega-label">Cement & Concrete</div><div class="mega-count">150+ Products</div></div>
+              </a>
+              <a class="mega-item" onclick="nav('products','Steel & Metal','Manufacturing')">
+                <div class="mega-icon" style="background:#FEE2E2;">🔩</div>
+                <div><div class="mega-label">Steel & Metal</div><div class="mega-count">280+ Products</div></div>
+              </a>
+              <a class="mega-item" onclick="nav('products','Electrical','Power & Energy')">
+                <div class="mega-icon" style="background:#FEF3C7;">⚡</div>
+                <div><div class="mega-label">Electrical</div><div class="mega-count">320+ Products</div></div>
+              </a>
+              <a class="mega-item" onclick="nav('products','Plumbing','Construction')">
+                <div class="mega-icon" style="background:#DCFCE7;">💧</div>
+                <div><div class="mega-label">Plumbing</div><div class="mega-count">190+ Products</div></div>
+              </a>
+              <a class="mega-item" onclick="nav('products','Paints & Coatings','Construction')">
+                <div class="mega-icon" style="background:#FCE7F3;">🎨</div>
+                <div><div class="mega-label">Paints & Coatings</div><div class="mega-count">210+ Products</div></div>
+              </a>
+              <a class="mega-item" onclick="nav('products','Tools & Hardware','Manufacturing')">
+                <div class="mega-icon" style="background:#EDE9FE;">🔧</div>
+                <div><div class="mega-label">Tools & Hardware</div><div class="mega-count">400+ Products</div></div>
+              </a>
+            </div>
+          </a>
+        </li>
+        <li><a onclick="nav('industries')" id="nav-industries">🏭 Industries</a></li>
+        <li><a onclick="nav('products')" id="nav-products">📦 Products</a></li>
+        <li><a onclick="nav('testimonials')" id="nav-testimonials">💬 Testimonials</a></li>
+        <li><a onclick="nav('contact')" id="nav-contact">📍 Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+</header>
+
+<!-- ========================================================================================================
+     PAGE: HOME
+     ======================================================================================================== -->
+<div class="page active" id="page-home">
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <div style="display:grid;grid-template-columns:1.1fr 0.9fr;gap:56px;align-items:center;">
+        <div>
+          <div class="hero-badge">🏆 Trusted by 50,000+ Businesses Across India</div>
+          <h1>One Stop Solution<br>For <span>All Industrial</span><br>Needs</h1>
+          <p>Quality products. Multiple industries. Verified suppliers.<br>Get the best prices with a single inquiry.</p>
+          <div class="hero-search">
+            <input type="text" placeholder="Search products, categories, brands...">
+            <button>🔍</button>
+          </div>
+          <div class="hero-stats">
+            <div class="hero-stat">
+              <div class="hero-stat-icon">📦</div>
+              <div><strong>1000+</strong><span>Products</span></div>
+            </div>
+            <div class="hero-stat">
+              <div class="hero-stat-icon">🏭</div>
+              <div><strong>50+</strong><span>Industries</span></div>
+            </div>
+            <div class="hero-stat">
+              <div class="hero-stat-icon">✅</div>
+              <div><strong>500+</strong><span>Verified Suppliers</span></div>
+            </div>
+            <div class="hero-stat">
+              <div class="hero-stat-icon">🚚</div>
+              <div><strong>PAN India</strong><span>Delivery</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <div class="hero-main-img">🏗️</div>
+          <div class="hero-card hero-card-1">
+            <div style="font-size:10px;color:var(--text-muted);font-family:var(--font-ui);margin-bottom:2px;">Today's Inquiries</div>
+            <div style="font-family:var(--font-display);font-size:26px;font-weight:900;color:var(--text);">1,248</div>
+            <div style="font-size:11px;color:var(--success);font-family:var(--font-ui);font-weight:600;">↑ 12% from yesterday</div>
+          </div>
+          <div class="hero-card hero-card-2">
+            <div style="font-size:10px;color:rgba(255,255,255,0.8);font-family:var(--font-ui);margin-bottom:2px;">Happy Clients</div>
+            <div style="font-family:var(--font-display);font-size:26px;font-weight:900;color:white;">50,000+</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trust Bar -->
+  <div class="trust-bar">
+    <div class="container">
+      <div class="trust-items">
+        <div class="trust-item">✅ <strong>GST Verified</strong> Suppliers</div>
+        <div class="trust-item">🔒 <strong>Secure</strong> Transactions</div>
+        <div class="trust-item">🚚 <strong>PAN India</strong> Delivery</div>
+        <div class="trust-item">⚡ <strong>24hr</strong> Response Time</div>
+        <div class="trust-item">🎧 <strong>Dedicated</strong> Support</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Top Categories -->
+  <section class="section section-white">
+    <div class="container">
+      <div class="flex-between mb-32">
+        <div class="section-header" style="margin-bottom:0;">
+          <h2>Top Categories</h2>
+          <p>Explore our wide range of industrial product categories</p>
+        </div>
+        <a class="section-link" onclick="nav('industries')">Browse All Industries →</a>
+      </div>
+      <div class="grid grid-6">
+        <a class="cat-card" onclick="nav('products','Cement & Concrete','Construction')">
+          <div class="cat-card-icon" style="background:#E3F0FF;">🏗️</div>
+          <div class="cat-card-name">Cement & Concrete</div>
+          <div class="cat-card-count">150+ Products</div>
+        </a>
+        <a class="cat-card" onclick="nav('products','Steel & Metal','Manufacturing')">
+          <div class="cat-card-icon" style="background:#FEE2E2;">🔩</div>
+          <div class="cat-card-name">Steel & Metal</div>
+          <div class="cat-card-count">280+ Products</div>
+        </a>
+        <a class="cat-card" onclick="nav('products','Electrical','Power & Energy')">
+          <div class="cat-card-icon" style="background:#FEF3C7;">⚡</div>
+          <div class="cat-card-name">Electrical</div>
+          <div class="cat-card-count">320+ Products</div>
+        </a>
+        <a class="cat-card" onclick="nav('products','Plumbing','Construction')">
+          <div class="cat-card-icon" style="background:#DCFCE7;">💧</div>
+          <div class="cat-card-name">Plumbing</div>
+          <div class="cat-card-count">190+ Products</div>
+        </a>
+        <a class="cat-card" onclick="nav('products','Paints & Coatings','Construction')">
+          <div class="cat-card-icon" style="background:#FCE7F3;">🎨</div>
+          <div class="cat-card-name">Paints & Coatings</div>
+          <div class="cat-card-count">210+ Products</div>
+        </a>
+        <a class="cat-card" onclick="nav('products','Tools & Hardware','Manufacturing')">
+          <div class="cat-card-icon" style="background:#EDE9FE;">🔧</div>
+          <div class="cat-card-name">Tools & Hardware</div>
+          <div class="cat-card-count">400+ Products</div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Industries We Serve -->
+  <section class="section section-light">
+    <div class="container">
+      <div class="flex-between mb-32">
+        <div class="section-header" style="margin-bottom:0;">
+          <h2>Industries We Serve</h2>
+          <p>Tailored industrial solutions for every sector</p>
+        </div>
+        <a class="section-link" onclick="nav('industries')">View All →</a>
+      </div>
+      <div class="grid grid-4">
+        <a class="industry-card" onclick="nav('categories','Construction')">
+          <div class="industry-card-img" style="background:linear-gradient(135deg,#1e3a5f,#2d5a8e);">
+            🏗️
+            <span class="industry-card-badge">1200+ Products</span>
+          </div>
+          <div class="industry-card-body">
+            <div class="industry-card-name">Construction</div>
+            <div class="industry-card-count">Cement, Steel, Bricks, Roofing & more</div>
+          </div>
+        </a>
+        <a class="industry-card" onclick="nav('categories','Manufacturing')">
+          <div class="industry-card-img" style="background:linear-gradient(135deg,#2d1a1a,#6b3a1a);">
+            ⚙️
+            <span class="industry-card-badge">800+ Products</span>
+          </div>
+          <div class="industry-card-body">
+            <div class="industry-card-name">Manufacturing</div>
+            <div class="industry-card-count">Tools, Hardware, Metals & Machinery</div>
+          </div>
+        </a>
+        <a class="industry-card" onclick="nav('categories','Agriculture')">
+          <div class="industry-card-img" style="background:linear-gradient(135deg,#0d3318,#1a5c2d);">
+            🌾
+            <span class="industry-card-badge">400+ Products</span>
+          </div>
+          <div class="industry-card-body">
+            <div class="industry-card-name">Agriculture</div>
+            <div class="industry-card-count">Fertilizers, Seeds, Equipment & more</div>
+          </div>
+        </a>
+        <a class="industry-card" onclick="nav('categories','Power & Energy')">
+          <div class="industry-card-img" style="background:linear-gradient(135deg,#2d1a3a,#4e2d6e);">
+            ⚡
+            <span class="industry-card-badge">600+ Products</span>
+          </div>
+          <div class="industry-card-body">
+            <div class="industry-card-name">Power & Energy</div>
+            <div class="industry-card-count">Cables, Panels, Transformers & more</div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Products -->
+  <section class="section section-white">
+    <div class="container">
+      <div class="flex-between mb-32">
+        <div class="section-header" style="margin-bottom:0;">
+          <h2>Featured Products</h2>
+          <p>Top selling industrial products this month</p>
+        </div>
+        <a class="section-link" onclick="nav('products')">View All →</a>
+      </div>
+      <div class="grid grid-4">
+        <div class="product-card" onclick="nav('product-detail','UltraTech OPC 53 Grade','UltraTech','₹450','Bag')">
+          <div class="pc-img">🏗️<div class="pc-img-bg">🏗️</div><div class="pc-actions"><button class="pc-action-btn">🤍</button><button class="pc-action-btn">⚖️</button></div></div>
+          <div class="pc-body"><div class="pc-brand">UltraTech</div><div class="pc-name">OPC 53 Grade Cement</div><div class="pc-rating"><span class="stars">★★★★★</span> 5.0 (1,100)</div><div class="pc-price">₹450 <span>/ Bag</span></div></div>
+          <div class="pc-footer"><button class="btn-quote-sm" onclick="event.stopPropagation();nav('inquiry','UltraTech OPC 53 Grade','₹450','Bag')">📋 Request Quote</button><button class="btn-detail-sm" onclick="event.stopPropagation();nav('product-detail','UltraTech OPC 53 Grade','UltraTech','₹450','Bag')">👁</button></div>
+        </div>
+        <div class="product-card" onclick="nav('product-detail','TMT Steel Bar 12mm','Tata Steel','₹58','kg')">
+          <div class="pc-img">🔩<div class="pc-img-bg">🔩</div><div class="pc-actions"><button class="pc-action-btn">🤍</button></div></div>
+          <div class="pc-body"><div class="pc-brand">Tata Steel</div><div class="pc-name">TMT Steel Bar 12mm</div><div class="pc-rating"><span class="stars">★★★★★</span> 4.8 (880)</div><div class="pc-price">₹58 <span>/ kg</span></div></div>
+          <div class="pc-footer"><button class="btn-quote-sm" onclick="event.stopPropagation();nav('inquiry','TMT Steel Bar 12mm','₹58','kg')">📋 Request Quote</button><button class="btn-detail-sm" onclick="event.stopPropagation();nav('product-detail','TMT Steel Bar 12mm','Tata Steel','₹58','kg')">👁</button></div>
+        </div>
+        <div class="product-card" onclick="nav('product-detail','Findex Wire 1.5sqmm','Polycab','₹25','Meter')">
+          <div class="pc-img">⚡<div class="pc-img-bg">⚡</div><div class="pc-actions"><button class="pc-action-btn">🤍</button></div></div>
+          <div class="pc-body"><div class="pc-brand">Polycab</div><div class="pc-name">Findex Wire 1.5sqmm</div><div class="pc-rating"><span class="stars">★★★★☆</span> 4.6 (654)</div><div class="pc-price">₹25 <span>/ Meter</span></div></div>
+          <div class="pc-footer"><button class="btn-quote-sm" onclick="event.stopPropagation();nav('inquiry','Findex Wire 1.5sqmm','₹25','Meter')">📋 Request Quote</button><button class="btn-detail-sm" onclick="event.stopPropagation();nav('product-detail','Findex Wire 1.5sqmm','Polycab','₹25','Meter')">👁</button></div>
+        </div>
+        <div class="product-card" onclick="nav('product-detail','Supreme PVC Pipe 4\"','Supreme','₹80','Meter')">
+          <div class="pc-img">💧<div class="pc-img-bg">💧</div><div class="pc-actions"><button class="pc-action-btn">🤍</button></div></div>
+          <div class="pc-body"><div class="pc-brand">Supreme</div><div class="pc-name">Supreme PVC Pipe 4"</div><div class="pc-rating"><span class="stars">★★★★★</span> 4.9 (432)</div><div class="pc-price">₹80 <span>/ Meter</span></div></div>
+          <div class="pc-footer"><button class="btn-quote-sm" onclick="event.stopPropagation();nav('inquiry','Supreme PVC Pipe 4\"','₹80','Meter')">📋 Request Quote</button><button class="btn-detail-sm" onclick="event.stopPropagation();nav('product-detail','Supreme PVC Pipe 4\"','Supreme','₹80','Meter')">👁</button></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Choose Us -->
+  <section class="section section-muted">
+    <div class="container">
+      <div class="section-header center text-center"><h2>Why Choose IndusMart?</h2><p>Trusted by 50,000+ businesses across India</p></div>
+      <div class="grid grid-4">
+        <div class="why-card">
+          <div class="why-icon" style="background:var(--blue-pale);">✅</div>
+          <h4>Verified Suppliers</h4>
+          <p>All suppliers verified with GST and business registration for trusted, secure transactions.</p>
+        </div>
+        <div class="why-card">
+          <div class="why-icon" style="background:var(--orange-pale);">💰</div>
+          <h4>Best Prices</h4>
+          <p>Compare quotes from multiple suppliers and get the most competitive pricing for your business.</p>
+        </div>
+        <div class="why-card">
+          <div class="why-icon" style="background:var(--success-pale);">🚚</div>
+          <h4>Fast Delivery</h4>
+          <p>Nationwide delivery network with real-time tracking across all 28 states and UTs of India.</p>
+        </div>
+        <div class="why-card">
+          <div class="why-icon" style="background:var(--warning-pale);">🎧</div>
+          <h4>24/7 Support</h4>
+          <p>Dedicated support team available round the clock to resolve any queries instantly.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Preview -->
+  <section class="section section-white">
+    <div class="container">
+      <div class="flex-between mb-32">
+        <div class="section-header" style="margin-bottom:0;"><h2>What Our Customers Say</h2><p>Trusted by thousands of businesses across industries</p></div>
+        <a class="section-link" onclick="nav('testimonials')">All Reviews →</a>
+      </div>
+      <div class="grid grid-3">
+        <div class="testimonial-card">
+          <span class="tc-quote-mark">"</span>
+          <div class="tc-text">Great quality products and timely delivery. IndusMart is the best platform for construction needs!</div>
+          <div class="tc-author"><div class="tc-avatar" style="background:#1565C0;">A</div><div><div class="tc-name">Amit Builders</div><div class="tc-role">Construction • Uttar Pradesh</div></div><div class="tc-rating">★★★★★</div></div>
+        </div>
+        <div class="testimonial-card">
+          <span class="tc-quote-mark">"</span>
+          <div class="tc-text">Wide range of industrial products under one roof. Excellent service and post-sale support!</div>
+          <div class="tc-author"><div class="tc-avatar" style="background:var(--orange);">S</div><div><div class="tc-name">Shree Enterprises</div><div class="tc-role">Manufacturing • Maharashtra</div></div><div class="tc-rating">★★★★★</div></div>
+        </div>
+        <div class="testimonial-card">
+          <span class="tc-quote-mark">"</span>
+          <div class="tc-text">Best platform for agricultural supplies. Genuine products at great prices, always on time.</div>
+          <div class="tc-author"><div class="tc-avatar" style="background:#16A34A;">K</div><div><div class="tc-name">Kisan Agro</div><div class="tc-role">Agriculture • Punjab</div></div><div class="tc-rating">★★★★★</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div><!-- /page-home -->
+
+<!-- ========================================================================================================
+     PAGE: INDUSTRIES
+     ======================================================================================================== -->
+<div class="page" id="page-industries">
+  <div class="breadcrumb-bar">
+    <div class="container">
+      <ol class="breadcrumb"><li><a onclick="nav('home')">Home</a></li><li class="active">All Industries</li></ol>
+    </div>
+  </div>
+  <section class="section section-white">
+    <div class="container">
+      <div class="layout-with-sidebar">
+        <!-- Sidebar -->
+        <div class="sidebar">
+          <div class="sidebar-card">
+            <div class="sidebar-section">
+              <div class="sidebar-title">Filter by Industry</div>
+              <div class="filter-list">
+                <div class="filter-item"><label><input type="checkbox" checked> Construction</label><span class="filter-count">1200</span></div>
+                <div class="filter-item"><label><input type="checkbox"> Manufacturing</label><span class="filter-count">800</span></div>
+                <div class="filter-item"><label><input type="checkbox"> Agriculture</label><span class="filter-count">400</span></div>
+                <div class="filter-item"><label><input type="checkbox"> Infrastructure</label><span class="filter-count">500</span></div>
+                <div class="filter-item"><label><input type="checkbox"> Oil & Gas</label><span class="filter-count">300</span></div>
+                <div class="filter-item"><label><input type="checkbox"> Power & Energy</label><span class="filter-count">600</span></div>
+                <div class="filter-item"><label><input type="checkbox"> Automotive</label><span class="filter-count">450</span></div>
+                <div class="filter-item"><label><input type="checkbox"> Mining</label><span class="filter-count">250</span></div>
+              </div>
+            </div>
+            <div class="sidebar-section">
+              <div class="sidebar-title">Trending Now</div>
+              <div style="display:flex;flex-direction:column;gap:8px;">
+                <div style="display:flex;align-items:center;gap:8px;font-size:13px;font-family:var(--font-ui);padding:6px 0;border-bottom:1px solid var(--border);">🔥 Construction <span class="badge badge-hot" style="margin-left:auto;">Hot</span></div>
+                <div style="display:flex;align-items:center;gap:8px;font-size:13px;font-family:var(--font-ui);padding:6px 0;border-bottom:1px solid var(--border);">📈 Manufacturing</div>
+                <div style="display:flex;align-items:center;gap:8px;font-size:13px;font-family:var(--font-ui);padding:6px 0;">⚡ Power & Energy</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Main -->
+        <div>
+          <div class="flex-between mb-24">
+            <div><h2 style="font-family:var(--font-display);font-size:30px;font-weight:900;">All Industries</h2><p class="text-muted text-sm mt-8">Explore products and solutions for every industrial sector</p></div>
+            <select class="form-select" style="width:180px;">
+              <option>Sort: Most Popular</option><option>Sort: A–Z</option><option>Most Products</option>
+            </select>
+          </div>
+          <div class="grid grid-3">
+            <a class="industry-card" onclick="nav('categories','Construction')">
+              <div class="industry-card-img" style="background:linear-gradient(135deg,#1e3a5f,#2d5a8e);">🏗️<span class="industry-card-badge">1200+</span></div>
+              <div class="industry-card-body"><div class="industry-card-name">Construction</div><div class="industry-card-count">1,200+ Products • Cement, Steel, Bricks & more</div></div>
+            </a>
+            <a class="industry-card" onclick="nav('categories','Manufacturing')">
+              <div class="industry-card-img" style="background:linear-gradient(135deg,#2d1a1a,#6b3a1a);">⚙️<span class="industry-card-badge">800+</span></div>
+              <div class="industry-card-body"><div class="industry-card-name">Manufacturing</div><div class="industry-card-count">800+ Products • Tools, Metal, Machinery</div></div>
+            </a>
+            <a class="industry-card" onclick="nav('categories','Agriculture')">
+              <div class="industry-card-img" style="background:linear-gradient(135deg,#0d3318,#1a5c2d);">🌾<span class="industry-card-badge">400+</span></div>
+              <div class="industry-card-body"><div class="industry-card-name">Agriculture</div><div class="industry-card-count">400+ Products • Fertilizers, Seeds & Equipment</div></div>
+            </a>
+            <a class="industry-card" onclick="nav('categories','Infrastructure')">
+              <div class="industry-card-img" style="background:linear-gradient(135deg,#1a1a3a,#2d2d6e);">🏛️<span class="industry-card-badge">500+</span></div>
+              <div class="industry-card-body"><div class="industry-card-name">Infrastructure</div><div class="industry-card-count">500+ Products • Roads, Bridges & Civil Works</div></div>
+            </a>
+            <a class="industry-card" onclick="nav('categories','Oil & Gas')">
+              <div class="industry-card-img" style="background:linear-gradient(135deg,#1a1a1a,#3a3a3a);">🛢️<span class="industry-card-badge">300+</span></div>
+              <div class="industry-card-body"><div class="industry-card-name">Oil & Gas</div><div class="industry-card-count">300+ Products • Pipes, Fittings & Equipment</div></div>
+            </a>
+            <a class="industry-card" onclick="nav('categories','Power & Energy')">
+              <div class="industry-card-img" style="background:linear-gradient(135deg,#2d1a3a,#4e2d6e);">⚡<span class="industry-card-badge">600+</span></div>
+              <div class="industry-card-body"><div class="industry-card-name">Power & Energy</div><div class="industry-card-count">600+ Products • Cables, Panels & Transformers</div></div>
+            </a>
+            <a class="industry-card" onclick="nav('categories','Automotive')">
+              <div class="industry-card-img" style="background:linear-gradient(135deg,#1a2d1a,#2d5c2d);">🚗<span class="industry-card-badge">450+</span></div>
+              <div class="industry-card-body"><div class="industry-card-name">Automotive</div><div class="industry-card-count">450+ Products • Parts, Lubricants & Accessories</div></div>
+            </a>
+            <a class="industry-card" onclick="nav('categories','Mining')">
+              <div class="industry-card-img" style="background:linear-gradient(135deg,#2d1a0d,#5c3a1a);">⛏️<span class="industry-card-badge">250+</span></div>
+              <div class="industry-card-body"><div class="industry-card-name">Mining</div><div class="industry-card-count">250+ Products • Equipment & Safety Gear</div></div>
+            </a>
+            <a class="industry-card" onclick="nav('categories','Water Treatment')">
+              <div class="industry-card-img" style="background:linear-gradient(135deg,#0d2d3a,#1a5c6e);">💧<span class="industry-card-badge">180+</span></div>
+              <div class="industry-card-body"><div class="industry-card-name">Water Treatment</div><div class="industry-card-count">180+ Products • Filtration & Treatment Systems</div></div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div><!-- /page-industries -->
+
+<!-- ========================================================================================================
+     PAGE: CATEGORIES (by Industry)
+     ======================================================================================================== -->
+<div class="page" id="page-categories">
+  <div class="breadcrumb-bar">
+    <div class="container">
+      <ol class="breadcrumb"><li><a onclick="nav('home')">Home</a></li><li><a onclick="nav('industries')">Industries</a></li><li class="active" id="bc-industry">Construction</li></ol>
+    </div>
+  </div>
+  <section class="section section-white">
+    <div class="container">
+      <div class="layout-with-sidebar">
+        <!-- Sidebar with sub-nav -->
+        <div class="sidebar">
+          <div class="sidebar-card">
+            <div class="sidebar-section">
+              <div class="sidebar-title">Categories in <span id="sidebar-industry-name">Construction</span></div>
+              <ul class="cat-nav-list" id="cat-nav-list">
+                <!-- Filled by JS -->
+              </ul>
+            </div>
+            <div class="sidebar-section">
+              <div class="sidebar-title">Price Range</div>
+              <div class="price-range-inputs">
+                <input type="number" placeholder="Min ₹" value="0">
+                <input type="number" placeholder="Max ₹" value="99999">
+              </div>
+              <div style="display:flex;gap:8px;margin-top:8px;">
+                <button class="btn btn-primary btn-sm" style="flex:1;" onclick="showToast('Filters applied!','info')">Apply</button>
+                <button class="btn btn-ghost btn-sm" onclick="showToast('Filters reset','info')">Reset</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Main -->
+        <div>
+          <div class="mb-28">
+            <h2 id="cat-page-title" style="font-family:var(--font-display);font-size:30px;font-weight:900;margin-bottom:6px;">Construction Industry</h2>
+            <p class="text-muted text-sm" id="cat-page-subtitle">Select a category to explore products</p>
+          </div>
+          <div class="grid grid-3" id="cat-cards-grid">
+            <!-- Filled by JS -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div><!-- /page-categories -->
+
+<!-- ========================================================================================================
+     PAGE: PRODUCTS (listing with filter)
+     ======================================================================================================== -->
+<div class="page" id="page-products">
+  <div class="breadcrumb-bar">
+    <div class="container">
+      <ol class="breadcrumb">
+        <li><a onclick="nav('home')">Home</a></li>
+        <li><a onclick="nav('industries')">Industries</a></li>
+        <li><a id="bc-prod-industry" onclick="">Construction</a></li>
+        <li class="active" id="bc-prod-cat">OPC Cement</li>
+      </ol>
+    </div>
+  </div>
+  <section class="section section-white">
+    <div class="container">
+      <div class="layout-with-sidebar">
+        <!-- Sidebar -->
+        <div class="sidebar">
+          <div class="sidebar-card">
+            <div class="sidebar-section">
+              <div class="sidebar-title">Sub-categories</div>
+              <ul class="cat-nav-list" id="subcats-list"><!-- JS --></ul>
+            </div>
+            <div class="sidebar-section">
+              <div class="sidebar-title">Price Range <button onclick="showToast('Filters reset','info')" style="font-size:11px;color:var(--blue);background:none;border:none;cursor:pointer;font-weight:700;">Reset</button></div>
+              <div class="price-range-inputs"><input type="number" placeholder="Min ₹" value="99"><input type="number" placeholder="Max ₹" value="9000"></div>
+              <input type="range" min="0" max="10000" value="9000" style="width:100%;accent-color:var(--blue);margin-top:8px;">
+            </div>
+            <div class="sidebar-section">
+              <div class="sidebar-title">Brand</div>
+              <div class="filter-list">
+                <div class="filter-item"><label><input type="checkbox" checked> UltraTech</label><span class="filter-count">28</span></div>
+                <div class="filter-item"><label><input type="checkbox"> ACC</label><span class="filter-count">22</span></div>
+                <div class="filter-item"><label><input type="checkbox"> Ambuja</label><span class="filter-count">18</span></div>
+                <div class="filter-item"><label><input type="checkbox"> Shree Cement</label><span class="filter-count">15</span></div>
+                <div class="filter-item"><label><input type="checkbox"> Dalmia</label><span class="filter-count">12</span></div>
+              </div>
+            </div>
+            <div class="sidebar-section">
+              <div class="sidebar-title">Ratings</div>
+              <div class="filter-list">
+                <div class="filter-item"><label><input type="checkbox"> <span class="stars">★★★★★</span> 5 Star</label></div>
+                <div class="filter-item"><label><input type="checkbox" checked> <span class="stars">★★★★☆</span> 4+ Stars</label></div>
+                <div class="filter-item"><label><input type="checkbox"> <span class="stars">★★★☆☆</span> 3+ Stars</label></div>
+              </div>
+            </div>
+            <div class="sidebar-section">
+              <button class="btn btn-primary btn-block" onclick="showToast('Filters applied!','success')">Apply Filters</button>
+            </div>
+          </div>
+        </div>
+        <!-- Products Grid -->
+        <div>
+          <div class="flex-between mb-20" style="flex-wrap:wrap;gap:12px;">
+            <div>
+              <h2 id="prod-page-title" style="font-family:var(--font-display);font-size:24px;font-weight:900;">OPC Cement</h2>
+              <p class="text-muted text-sm">150 Products found</p>
+            </div>
+            <div style="display:flex;align-items:center;gap:12px;">
+              <select class="form-select" style="width:180px;">
+                <option>Sort: Most Popular</option>
+                <option>Price: Low to High</option>
+                <option>Price: High to Low</option>
+                <option>Newest First</option>
+              </select>
+              <div style="display:flex;gap:4px;">
+                <button class="btn btn-ghost btn-icon" title="Grid view">⊞</button>
+                <button class="btn btn-icon" style="background:var(--blue-pale);color:var(--blue);border:none;" title="List view">☰</button>
+              </div>
+            </div>
+          </div>
+          <!-- Active filters chips -->
+          <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:20px;" id="active-filters">
+            <div class="tag active">UltraTech <span onclick="showToast('Filter removed','info')" style="margin-left:4px;cursor:pointer;">×</span></div>
+            <div class="tag active">4+ Stars <span onclick="showToast('Filter removed','info')" style="margin-left:4px;cursor:pointer;">×</span></div>
+          </div>
+          <div class="grid grid-3" id="prod-listing-grid">
+            <!-- products filled by JS -->
+          </div>
+          <div class="flex-between mt-32">
+            <div class="text-sm text-muted">Showing 1–6 of 150 products</div>
+            <div class="pagination">
+              <a style="opacity:.4;">‹</a>
+              <a class="active">1</a>
+              <a onclick="showToast('Page 2','info')">2</a>
+              <a onclick="showToast('Page 3','info')">3</a>
+              <span style="padding:0 4px;color:var(--gray);">…</span>
+              <a onclick="showToast('Page 25','info')">25</a>
+              <a onclick="showToast('Next page','info')">›</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div><!-- /page-products -->
+
+<!-- ========================================================================================================
+     PAGE: PRODUCT DETAIL
+     ======================================================================================================== -->
+<div class="page" id="page-product-detail">
+  <div class="breadcrumb-bar">
+    <div class="container">
+      <ol class="breadcrumb">
+        <li><a onclick="nav('home')">Home</a></li>
+        <li><a id="bc-detail-industry" onclick="">Construction</a></li>
+        <li><a id="bc-detail-cat" onclick="">Cement & Concrete</a></li>
+        <li class="active" id="bc-detail-prod">UltraTech OPC 53</li>
+      </ol>
+    </div>
+  </div>
+
+  <section class="section section-white">
+    <div class="container">
+      <div class="product-detail-grid">
+        <!-- Gallery -->
+        <div class="product-gallery-wrap">
+          <div class="main-img" id="detail-main-img">🏗️</div>
+          <div class="thumb-strip">
+            <div class="thumb active">🏗️</div>
+            <div class="thumb">📦</div>
+            <div class="thumb">🏭</div>
+            <div class="thumb">📋</div>
+          </div>
+          <!-- Mini Spec Cards -->
+          <div class="grid grid-2 mt-16" style="gap:10px;">
+            <div style="background:var(--blue-pale);border-radius:var(--radius-sm);padding:14px;text-align:center;">
+              <div style="font-size:22px;margin-bottom:4px;">✅</div>
+              <div style="font-family:var(--font-ui);font-size:11.5px;color:var(--blue);font-weight:700;">GST Verified</div>
+            </div>
+            <div style="background:var(--success-pale);border-radius:var(--radius-sm);padding:14px;text-align:center;">
+              <div style="font-size:22px;margin-bottom:4px;">🚚</div>
+              <div style="font-family:var(--font-ui);font-size:11.5px;color:var(--success);font-weight:700;">Pan India Delivery</div>
+            </div>
+            <div style="background:var(--warning-pale);border-radius:var(--radius-sm);padding:14px;text-align:center;">
+              <div style="font-size:22px;margin-bottom:4px;">⚡</div>
+              <div style="font-family:var(--font-ui);font-size:11.5px;color:var(--warning);font-weight:700;">24hr Response</div>
+            </div>
+            <div style="background:var(--orange-pale);border-radius:var(--radius-sm);padding:14px;text-align:center;">
+              <div style="font-size:22px;margin-bottom:4px;">💰</div>
+              <div style="font-family:var(--font-ui);font-size:11.5px;color:var(--orange);font-weight:700;">Best Pricing</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product Info -->
+        <div>
+          <div class="product-info-card">
+            <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px;">
+              <span class="badge badge-green">✅ In Stock</span>
+              <span class="badge badge-blue" id="detail-cat-badge">OPC Cement</span>
+              <span class="badge badge-orange">🏆 Top Seller</span>
+            </div>
+            <h1 class="product-title" id="detail-title">UltraTech OPC 53 Grade</h1>
+            <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px;">
+              <span class="stars" style="font-size:18px;">★★★★★</span>
+              <span style="font-family:var(--font-ui);font-size:13.5px;color:var(--text-muted);">5.0 (1,100 Reviews)</span>
+              <span class="verified-badge" style="margin-left:8px;">✓ Verified Purchases</span>
+            </div>
+            <div class="product-price-big mb-16" id="detail-price">₹450 <span>/ Bag (incl. GST)</span></div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;font-family:var(--font-ui);font-size:13.5px;margin-bottom:18px;background:var(--light);border-radius:var(--radius-sm);padding:16px;">
+              <div><span style="color:var(--text-muted);">Brand:</span> <strong id="detail-brand">UltraTech</strong></div>
+              <div><span style="color:var(--text-muted);">Type:</span> <strong>OPC Cement</strong></div>
+              <div><span style="color:var(--text-muted);">Grade:</span> <strong>53 Grade</strong></div>
+              <div><span style="color:var(--text-muted);">Packaging:</span> <strong>50 kg Bag</strong></div>
+              <div><span style="color:var(--text-muted);">MOQ:</span> <strong>100 Bags</strong></div>
+              <div><span style="color:var(--text-muted);">Delivery:</span> <strong>3–7 Business Days</strong></div>
+            </div>
+            <p style="font-size:14px;color:var(--text-muted);font-family:var(--font-ui);line-height:1.8;margin-bottom:22px;">
+              High-strength OPC cement suitable for all types of construction. Provides superior compressive strength and durability for all structures. Ideal for RCC frames, bridges, flyovers, and high-rise buildings.
+            </p>
+
+            <!-- Bulk Order CTA -->
+            <div style="background:linear-gradient(135deg,var(--orange-pale),#FFF8F0);border:1.5px solid #FFD4A8;border-radius:var(--radius-sm);padding:16px;margin-bottom:22px;display:flex;align-items:center;gap:16px;">
+              <div style="font-size:36px;">📦</div>
+              <div style="flex:1;">
+                <div style="font-weight:800;color:var(--orange);font-family:var(--font-display);font-size:16px;margin-bottom:4px;">Need Bulk Order?</div>
+                <div style="font-size:13px;color:var(--text-muted);font-family:var(--font-ui);">Get special pricing for 500+ bags. Dedicated account manager assigned.</div>
+              </div>
+              <button class="btn btn-orange btn-sm" onclick="nav('inquiry',document.getElementById('detail-title').textContent,document.getElementById('detail-price-val').textContent,'Bag')">Get Bulk Quote</button>
+            </div>
+
+            <!-- Main Action Buttons -->
+            <div style="display:flex;gap:12px;flex-wrap:wrap;">
+              <button class="btn-inquiry" onclick="nav('inquiry',document.getElementById('detail-title').textContent,document.getElementById('detail-price-val').textContent,'Bag')">
+                📋 Send Inquiry
+              </button>
+              <button class="btn btn-outline" onclick="showToast('Added to compare!','info')">⚖️ Compare</button>
+              <button class="btn btn-ghost" onclick="showToast('Saved to wishlist!','success')">🤍 Save</button>
+            </div>
+          </div>
+
+          <!-- Tabs -->
+          <div style="background:white;border:1.5px solid var(--border);border-radius:var(--radius-lg);padding:22px;margin-top:20px;">
+            <div class="tab-nav">
+              <button class="tab-btn active" onclick="switchTab('tab-desc',this)">Description</button>
+              <button class="tab-btn" onclick="switchTab('tab-spec',this)">Specifications</button>
+              <button class="tab-btn" onclick="switchTab('tab-reviews',this)">Reviews (120)</button>
+              <button class="tab-btn" onclick="switchTab('tab-faq',this)">FAQ</button>
+            </div>
+            <div class="tab-content active" id="tab-desc">
+              <p style="font-family:var(--font-ui);font-size:14px;color:var(--text-muted);line-height:1.8;">
+                UltraTech OPC 53 Grade is one of the highest quality ordinary portland cement in India. It is produced by inter-grinding well-burnt cement clinker and gypsum conforming to IS 269. Ideal for RCC frames, bridges, flyovers, and heavy-duty structures requiring high early strength.
+              </p>
+              <div class="grid grid-2 mt-16" style="gap:10px;">
+                <div style="background:var(--light);border-radius:var(--radius-sm);padding:14px;font-family:var(--font-ui);font-size:13px;">✅ High compressive strength</div>
+                <div style="background:var(--light);border-radius:var(--radius-sm);padding:14px;font-family:var(--font-ui);font-size:13px;">✅ Superior workability</div>
+                <div style="background:var(--light);border-radius:var(--radius-sm);padding:14px;font-family:var(--font-ui);font-size:13px;">✅ Low heat of hydration</div>
+                <div style="background:var(--light);border-radius:var(--radius-sm);padding:14px;font-family:var(--font-ui);font-size:13px;">✅ BIS certified quality</div>
+              </div>
+            </div>
+            <div class="tab-content" id="tab-spec">
+              <table class="spec-table">
+                <tr><td>Compressive Strength</td><td>53 MPa (min at 28 days)</td></tr>
+                <tr><td>Initial Setting Time</td><td>Not less than 30 minutes</td></tr>
+                <tr><td>Final Setting Time</td><td>Not more than 600 minutes</td></tr>
+                <tr><td>Fineness</td><td>225 m²/kg (min)</td></tr>
+                <tr><td>Soundness</td><td>10 mm (max)</td></tr>
+                <tr><td>Packaging</td><td>50 kg bags, Bulk</td></tr>
+                <tr><td>Standard</td><td>IS 269</td></tr>
+              </table>
+            </div>
+            <div class="tab-content" id="tab-reviews">
+              <div class="review-card"><div class="flex-between mb-8"><strong style="font-family:var(--font-body);">Amit Construction Co.</strong><div style="display:flex;align-items:center;gap:6px;"><span class="stars">★★★★★</span><span class="verified-badge">✓ Verified</span></div></div><p style="font-size:13.5px;color:var(--text-muted);font-family:var(--font-ui);">Excellent cement for our 3-storey building project. Very satisfied with the quality and on-time delivery.</p></div>
+              <div class="review-card"><div class="flex-between mb-8"><strong style="font-family:var(--font-body);">Sharma Builders Pvt Ltd</strong><div style="display:flex;align-items:center;gap:6px;"><span class="stars">★★★★★</span><span class="verified-badge">✓ Verified</span></div></div><p style="font-size:13.5px;color:var(--text-muted);font-family:var(--font-ui);">Great strength. Highly recommended for commercial projects. Will order again.</p></div>
+              <div class="review-card"><div class="flex-between mb-8"><strong style="font-family:var(--font-body);">KP Infra Works</strong><div style="display:flex;align-items:center;gap:6px;"><span class="stars">★★★★☆</span><span class="verified-badge">✓ Verified</span></div></div><p style="font-size:13.5px;color:var(--text-muted);font-family:var(--font-ui);">Good quality, delivery was on schedule. Pricing is competitive for bulk orders.</p></div>
+            </div>
+            <div class="tab-content" id="tab-faq">
+              <div style="background:var(--light);border-radius:var(--radius-sm);padding:16px;margin-bottom:10px;">
+                <div style="font-weight:700;margin-bottom:6px;font-family:var(--font-body);">What is the minimum order quantity?</div>
+                <div style="font-size:13.5px;color:var(--text-muted);font-family:var(--font-ui);">The minimum order quantity is 100 bags (50kg each).</div>
+              </div>
+              <div style="background:var(--light);border-radius:var(--radius-sm);padding:16px;margin-bottom:10px;">
+                <div style="font-weight:700;margin-bottom:6px;font-family:var(--font-body);">Do you provide delivery across India?</div>
+                <div style="font-size:13.5px;color:var(--text-muted);font-family:var(--font-ui);">Yes, we deliver to all major cities and towns across India within 3–7 business days.</div>
+              </div>
+              <div style="background:var(--light);border-radius:var(--radius-sm);padding:16px;">
+                <div style="font-weight:700;margin-bottom:6px;font-family:var(--font-body);">Can I get a GST invoice?</div>
+                <div style="font-size:13.5px;color:var(--text-muted);font-family:var(--font-ui);">Yes, GST invoices are provided for all orders. Please mention your GSTIN in the inquiry form.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Quote Panel (sticky) -->
+        <div class="quote-panel">
+          <div class="quote-panel-title">📋 Quick Inquiry</div>
+          <div style="background:var(--orange-pale);border-radius:var(--radius-sm);padding:12px;margin-bottom:16px;text-align:center;">
+            <div style="font-family:var(--font-display);font-size:32px;font-weight:900;color:var(--orange);" id="detail-price-val">₹450</div>
+            <div style="font-family:var(--font-ui);font-size:12px;color:var(--text-muted);">per Bag (incl. GST)</div>
+          </div>
+          <div class="form-group"><label class="form-label">Quantity (Bags) *</label><input class="form-control" type="number" placeholder="Min 100" value="100" min="100"></div>
+          <div class="form-group"><label class="form-label">Delivery City *</label><input class="form-control" type="text" placeholder="Your city"></div>
+          <button class="btn-inquiry btn-block" style="width:100%;margin-bottom:10px;" onclick="nav('inquiry',document.getElementById('detail-title').textContent,document.getElementById('detail-price-val').textContent,'Bag')">
+            📋 Send Inquiry
+          </button>
+          <button class="btn btn-ghost btn-block" onclick="showToast('Saved to wishlist!','success')">🤍 Save Product</button>
+          <div class="seller-mini">
+            <div style="font-weight:700;font-size:14px;margin-bottom:8px;font-family:var(--font-body);">🏭 UltraTech Cement Ltd.</div>
+            <div style="font-size:12.5px;color:var(--text-muted);margin-bottom:4px;font-family:var(--font-ui);">📍 Mumbai, Maharashtra</div>
+            <div style="font-size:12.5px;color:var(--text-muted);margin-bottom:4px;font-family:var(--font-ui);">✅ GST Verified Supplier</div>
+            <div style="font-size:12.5px;color:var(--success);font-weight:600;font-family:var(--font-ui);">⚡ Responds within 24 hrs</div>
+            <div style="display:flex;gap:8px;margin-top:12px;">
+              <button class="btn btn-primary btn-sm" style="flex:1;" onclick="showToast('Initiating call…','info')">📞 Call</button>
+              <button class="btn btn-outline btn-sm" style="flex:1;" onclick="showToast('Opening chat…','info')">💬 Chat</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Related Products -->
+      <div class="mt-40">
+        <h3 style="font-family:var(--font-display);font-size:26px;font-weight:900;margin-bottom:24px;">You May Also Like</h3>
+        <div class="grid grid-4">
+          <div class="product-card" onclick="nav('product-detail','UltraTech PPC Cement','UltraTech','₹440','Bag')">
+            <div class="pc-img">🏗️</div>
+            <div class="pc-body"><div class="pc-brand">UltraTech</div><div class="pc-name">UltraTech PPC Cement</div><div class="pc-price">₹440 <span>/ Bag</span></div></div>
+            <div class="pc-footer"><button class="btn-quote-sm" onclick="event.stopPropagation();nav('inquiry','UltraTech PPC Cement','₹440','Bag')">Request Quote</button></div>
+          </div>
+          <div class="product-card" onclick="nav('product-detail','Ambuja PPC Cement','Ambuja','₹455','Bag')">
+            <div class="pc-img">🏗️</div>
+            <div class="pc-body"><div class="pc-brand">Ambuja</div><div class="pc-name">Ambuja PPC Cement</div><div class="pc-price">₹455 <span>/ Bag</span></div></div>
+            <div class="pc-footer"><button class="btn-quote-sm" onclick="event.stopPropagation();nav('inquiry','Ambuja PPC Cement','₹455','Bag')">Request Quote</button></div>
+          </div>
+          <div class="product-card" onclick="nav('product-detail','Shree Cement OPC','Shree Cement','₹430','Bag')">
+            <div class="pc-img">🏗️</div>
+            <div class="pc-body"><div class="pc-brand">Shree Cement</div><div class="pc-name">Shree Cement OPC</div><div class="pc-price">₹430 <span>/ Bag</span></div></div>
+            <div class="pc-footer"><button class="btn-quote-sm" onclick="event.stopPropagation();nav('inquiry','Shree Cement OPC','₹430','Bag')">Request Quote</button></div>
+          </div>
+          <div class="product-card" onclick="nav('product-detail','Dalmia OPC 43 Grade','Dalmia','₹410','Bag')">
+            <div class="pc-img">🏗️</div>
+            <div class="pc-body"><div class="pc-brand">Dalmia</div><div class="pc-name">Dalmia OPC 43 Grade</div><div class="pc-price">₹410 <span>/ Bag</span></div></div>
+            <div class="pc-footer"><button class="btn-quote-sm" onclick="event.stopPropagation();nav('inquiry','Dalmia OPC 43 Grade','₹410','Bag')">Request Quote</button></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div><!-- /page-product-detail -->
+
+<!-- ========================================================================================================
+     PAGE: INQUIRY
+     ======================================================================================================== -->
+<div class="page" id="page-inquiry">
+  <div class="breadcrumb-bar">
+    <div class="container">
+      <ol class="breadcrumb"><li><a onclick="nav('home')">Home</a></li><li class="active">Product Inquiry</li></ol>
+    </div>
+  </div>
+  <section class="section section-light">
+    <div class="container">
+      <div class="section-header center text-center" style="margin-bottom:36px;">
+        <h2>Send a Product Inquiry</h2>
+        <p>Fill in your requirements and our team will get back to you within <strong>24 hours</strong></p>
+      </div>
+      <div class="inquiry-layout">
+        <!-- Product Side -->
+        <div class="product-preview-side">
+          <h3 style="font-family:var(--font-display);font-size:19px;font-weight:900;margin-bottom:18px;">Your Selected Product</h3>
+          <div style="background:var(--light2);border-radius:var(--radius-lg);height:160px;display:flex;align-items:center;justify-content:center;font-size:72px;margin-bottom:18px;" id="inq-product-icon">🏗️</div>
+          <div style="font-family:var(--font-display);font-size:20px;font-weight:900;margin-bottom:8px;" id="inq-product-name">UltraTech OPC 53 Grade</div>
+          <div style="font-family:var(--font-display);font-size:30px;font-weight:900;color:var(--orange);margin-bottom:16px;" id="inq-product-price">₹450 <span style="font-size:14px;font-weight:500;color:var(--text-muted);font-family:var(--font-ui);">/ Bag</span></div>
+          <div style="font-family:var(--font-ui);font-size:13px;color:var(--text-muted);display:flex;flex-direction:column;gap:8px;margin-bottom:20px;">
+            <div>✅ Brand: <strong>UltraTech</strong></div>
+            <div>✅ Type: OPC Cement</div>
+            <div>✅ MOQ: 100 Bags</div>
+            <div>✅ GST Verified Supplier</div>
+          </div>
+          <div class="divider"></div>
+          <div style="background:var(--blue-pale);border-radius:var(--radius-sm);padding:16px;font-family:var(--font-ui);font-size:13px;">
+            <div style="color:var(--blue);font-weight:700;margin-bottom:10px;">Why IndusMart?</div>
+            <div style="color:var(--text-muted);display:flex;flex-direction:column;gap:6px;">
+              <div>✅ Response within 24 hours</div>
+              <div>✅ Best competitive pricing</div>
+              <div>✅ Bulk order discounts</div>
+              <div>✅ Timely delivery assured</div>
+              <div>✅ GST invoice provided</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Form Side -->
+        <div class="inquiry-form-side">
+          <h3 style="font-family:var(--font-display);font-size:24px;font-weight:900;margin-bottom:24px;">Your Details</h3>
+          <div class="grid grid-2">
+            <div class="form-group"><label class="form-label">Full Name <span class="req">*</span></label><input class="form-control" type="text" placeholder="Your full name" required></div>
+            <div class="form-group"><label class="form-label">Company Name <span class="req">*</span></label><input class="form-control" type="text" placeholder="Company name" required></div>
+            <div class="form-group"><label class="form-label">Phone Number <span class="req">*</span></label><input class="form-control" type="tel" placeholder="+91 XXXXX XXXXX" required></div>
+            <div class="form-group"><label class="form-label">Email Address <span class="req">*</span></label><input class="form-control" type="email" placeholder="Your email" required></div>
+          </div>
+          <div class="grid grid-2">
+            <div class="form-group">
+              <label class="form-label">Required Quantity <span class="req">*</span></label>
+              <div style="display:flex;gap:8px;">
+                <input class="form-control" type="number" placeholder="Qty" required style="flex:1;">
+                <select class="form-select" style="width:80px;flex-shrink:0;"><option>Bags</option><option>MT</option><option>Kg</option><option>Pieces</option></select>
+              </div>
+            </div>
+            <div class="form-group"><label class="form-label">Delivery Location <span class="req">*</span></label><input class="form-control" type="text" placeholder="City / State" required></div>
+          </div>
+          <div class="form-group"><label class="form-label">Your Budget (Optional)</label><input class="form-control" type="text" placeholder="e.g. ₹50,000 – ₹1,00,000"></div>
+          <div class="form-group">
+            <label class="form-label">Additional Requirements</label>
+            <textarea class="form-control" rows="4" placeholder="Tell us your specific requirements, delivery timeline, packaging preferences…"></textarea>
+          </div>
+          <div class="form-group">
+            <label class="form-label">GSTIN (Optional)</label>
+            <input class="form-control" type="text" placeholder="22AAAAA0000A1Z5 — for GST invoice">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Attach Documents (Optional)</label>
+            <div class="upload-zone" onclick="showToast('File upload dialog…','info')">
+              <div style="font-size:36px;margin-bottom:8px;">📎</div>
+              <div style="font-family:var(--font-ui);font-size:14px;font-weight:600;color:var(--text);">Click to upload or drag & drop</div>
+              <div style="font-family:var(--font-ui);font-size:12px;color:var(--text-muted);margin-top:4px;">PDF, Excel, Images — Max 5MB</div>
+            </div>
+          </div>
+          <button class="btn-inquiry btn-block" style="width:100%;justify-content:center;padding:16px;" onclick="submitInquiry()">
+            📋 Submit Inquiry
+          </button>
+          <p style="text-align:center;font-family:var(--font-ui);font-size:12px;color:var(--text-muted);margin-top:12px;">🔒 Your information is secure and will only be shared with the supplier</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</div><!-- /page-inquiry -->
+
+<!-- ========================================================================================================
+     PAGE: TESTIMONIALS
+     ======================================================================================================== -->
+<div class="page" id="page-testimonials">
+  <div class="breadcrumb-bar">
+    <div class="container">
+      <ol class="breadcrumb"><li><a onclick="nav('home')">Home</a></li><li class="active">Testimonials</li></ol>
+    </div>
+  </div>
+
+  <!-- Stats Banner -->
+  <div class="stats-section">
+    <div class="container">
+      <div class="grid grid-4" style="text-align:center;">
+        <div class="stat-item"><div class="stat-value">50,000<span>+</span></div><div class="stat-label">Satisfied Customers</div></div>
+        <div class="stat-item"><div class="stat-value">1,200<span>+</span></div><div class="stat-label">Products Listed</div></div>
+        <div class="stat-item"><div class="stat-value">500<span>+</span></div><div class="stat-label">Verified Suppliers</div></div>
+        <div class="stat-item"><div class="stat-value">98<span>%</span></div><div class="stat-label">Satisfaction Rate</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Testimonials -->
+  <section class="section section-white">
+    <div class="container">
+      <div class="section-header center text-center"><h2>What Our Customers Say</h2><p>Real reviews from real businesses across India</p></div>
+
+      <!-- Filter Tags -->
+      <div style="text-align:center;margin-bottom:36px;">
+        <a class="tag active" onclick="filterTestimonials('all',this)">All Industries</a>
+        <a class="tag" onclick="filterTestimonials('construction',this)">Construction</a>
+        <a class="tag" onclick="filterTestimonials('manufacturing',this)">Manufacturing</a>
+        <a class="tag" onclick="filterTestimonials('agriculture',this)">Agriculture</a>
+        <a class="tag" onclick="filterTestimonials('energy',this)">Power & Energy</a>
+      </div>
+
+      <div class="grid grid-3">
+        <div class="testimonial-card" data-industry="construction">
+          <span class="tc-quote-mark">"</span>
+          <div class="tc-text">IndusMart has completely transformed how we source construction materials. Prices are competitive and delivery is always on time.</div>
+          <div class="tc-author"><div class="tc-avatar" style="background:#1565C0;">A</div><div><div class="tc-name">Amit Builders Pvt Ltd</div><div class="tc-role">Construction • Uttar Pradesh</div></div><div class="tc-rating">★★★★★</div></div>
+        </div>
+        <div class="testimonial-card" data-industry="manufacturing">
+          <span class="tc-quote-mark">"</span>
+          <div class="tc-text">Wide range of industrial products under one roof. The supplier verification gives us confidence in every purchase we make.</div>
+          <div class="tc-author"><div class="tc-avatar" style="background:var(--orange);">S</div><div><div class="tc-name">Shree Enterprises</div><div class="tc-role">Manufacturing • Maharashtra</div></div><div class="tc-rating">★★★★★</div></div>
+        </div>
+        <div class="testimonial-card" data-industry="agriculture">
+          <span class="tc-quote-mark">"</span>
+          <div class="tc-text">Best platform for agricultural supplies. Genuine products at great prices. Our farm operations have improved significantly!</div>
+          <div class="tc-author"><div class="tc-avatar" style="background:#16A34A;">K</div><div><div class="tc-name">Kisan Agro Solutions</div><div class="tc-role">Agriculture • Punjab</div></div><div class="tc-rating">★★★★★</div></div>
+        </div>
+        <div class="testimonial-card" data-industry="energy">
+          <span class="tc-quote-mark">"</span>
+          <div class="tc-text">Reliable for power plant requirements. Products are always genuine and suppliers respond quickly to all queries.</div>
+          <div class="tc-author"><div class="tc-avatar" style="background:#7C3AED;">P</div><div><div class="tc-name">Power Tech Solutions</div><div class="tc-role">Power & Energy • Gujarat</div></div><div class="tc-rating">★★★★★</div></div>
+        </div>
+        <div class="testimonial-card" data-industry="construction">
+          <span class="tc-quote-mark">"</span>
+          <div class="tc-text">We've been ordering cement and steel from IndusMart for 2 years now. Consistent quality, great pricing, and excellent support.</div>
+          <div class="tc-author"><div class="tc-avatar" style="background:#DC2626;">R</div><div><div class="tc-name">Rajesh Infrastructure</div><div class="tc-role">Infrastructure • Rajasthan</div></div><div class="tc-rating">★★★★★</div></div>
+        </div>
+        <div class="testimonial-card" data-industry="manufacturing">
+          <span class="tc-quote-mark">"</span>
+          <div class="tc-text">Excellent platform with verified suppliers and very competitive pricing. Our procurement process has become 3x faster.</div>
+          <div class="tc-author"><div class="tc-avatar" style="background:#0891B2;">M</div><div><div class="tc-name">Modern Metals Ltd</div><div class="tc-role">Manufacturing • Tamil Nadu</div></div><div class="tc-rating">★★★★★</div></div>
+        </div>
+        <div class="testimonial-card" data-industry="construction">
+          <span class="tc-quote-mark">"</span>
+          <div class="tc-text">IndusMart saved us 18% on material costs in the first year alone. The bulk pricing and verified suppliers are a game changer.</div>
+          <div class="tc-author"><div class="tc-avatar" style="background:#9333EA;">V</div><div><div class="tc-name">VR Construction</div><div class="tc-role">Construction • Karnataka</div></div><div class="tc-rating">★★★★★</div></div>
+        </div>
+        <div class="testimonial-card" data-industry="agriculture">
+          <span class="tc-quote-mark">"</span>
+          <div class="tc-text">Ordering fertilizers and irrigation equipment has never been this easy. Fast delivery even to rural areas is impressive.</div>
+          <div class="tc-author"><div class="tc-avatar" style="background:#EA580C;">D</div><div><div class="tc-name">Deepak Agro Farm</div><div class="tc-role">Agriculture • Madhya Pradesh</div></div><div class="tc-rating">★★★★☆</div></div>
+        </div>
+        <div class="testimonial-card" data-industry="energy">
+          <span class="tc-quote-mark">"</span>
+          <div class="tc-text">The electrical products we ordered were all BIS certified. Quick response from the team and competitive bulk pricing.</div>
+          <div class="tc-author"><div class="tc-avatar" style="background:#0F766E;">N</div><div><div class="tc-name">Navya Electricals</div><div class="tc-role">Electrical • Andhra Pradesh</div></div><div class="tc-rating">★★★★★</div></div>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div style="margin-top:56px;background:linear-gradient(135deg,var(--navy),var(--navy-mid));border-radius:var(--radius-xl);padding:48px;text-align:center;">
+        <h3 style="font-family:var(--font-display);font-size:36px;font-weight:900;color:white;margin-bottom:12px;">Ready to Start Sourcing?</h3>
+        <p style="font-family:var(--font-ui);font-size:15px;color:rgba(255,255,255,0.65);margin-bottom:28px;">Join 50,000+ businesses sourcing smarter with IndusMart</p>
+        <div style="display:flex;justify-content:center;gap:16px;flex-wrap:wrap;">
+          <button class="btn-inquiry" onclick="nav('industries')">Browse Industries</button>
+          <button class="btn btn-outline" style="border-color:rgba(255,255,255,0.3);color:white;" onclick="nav('inquiry')">📋 Request a Quote</button>
+        </div>
+      </div>
+    </div>
+  </section>
+</div><!-- /page-testimonials -->
+
+<!-- ========================================================================================================
+     PAGE: CONTACT
+     ======================================================================================================== -->
+<div class="page" id="page-contact">
+  <div class="breadcrumb-bar">
+    <div class="container">
+      <ol class="breadcrumb"><li><a onclick="nav('home')">Home</a></li><li class="active">Contact Us</li></ol>
+    </div>
+  </div>
+  <section class="section section-white">
+    <div class="container">
+      <div class="section-header center text-center"><h2>Get In Touch</h2><p>We're here to help with all your industrial sourcing needs</p></div>
+      <div style="display:grid;grid-template-columns:1fr 1.6fr;gap:32px;max-width:1020px;margin:0 auto;">
+        <div style="background:var(--navy);border-radius:var(--radius-xl);padding:36px;color:white;height:fit-content;">
+          <h3 style="font-family:var(--font-display);font-size:24px;font-weight:800;margin-bottom:28px;">Contact Information</h3>
+          <div style="display:flex;flex-direction:column;gap:22px;font-family:var(--font-ui);font-size:14px;">
+            <div style="display:flex;gap:14px;"><div style="font-size:22px;">📍</div><div><div style="font-weight:600;margin-bottom:4px;">Address</div><div style="color:rgba(255,255,255,0.65);">5th Industrial Area, Sector 42<br>Noida, Uttar Pradesh 201001</div></div></div>
+            <div style="display:flex;gap:14px;"><div style="font-size:22px;">📞</div><div><div style="font-weight:600;margin-bottom:4px;">Phone</div><div style="color:rgba(255,255,255,0.65);">+91 98765 43210<br>+91 11333 22111</div></div></div>
+            <div style="display:flex;gap:14px;"><div style="font-size:22px;">✉️</div><div><div style="font-weight:600;margin-bottom:4px;">Email</div><div style="color:rgba(255,255,255,0.65);">info@indusmart.in<br>support@indusmart.in</div></div></div>
+            <div style="display:flex;gap:14px;"><div style="font-size:22px;">🕐</div><div><div style="font-weight:600;margin-bottom:4px;">Business Hours</div><div style="color:rgba(255,255,255,0.65);">Mon–Sat: 9:00 AM – 7:00 PM<br>Sunday: Closed</div></div></div>
+          </div>
+          <hr style="border:none;border-top:1px solid rgba(255,255,255,0.1);margin:28px 0;">
+          <div style="font-family:var(--font-ui);font-size:12px;color:rgba(255,255,255,0.5);margin-bottom:12px;font-weight:600;text-transform:uppercase;letter-spacing:0.8px;">Follow Us</div>
+          <div class="social-links">
+            <a class="social-btn">f</a>
+            <a class="social-btn">in</a>
+            <a class="social-btn">🐦</a>
+            <a class="social-btn">▶</a>
+          </div>
+        </div>
+        <div style="background:white;border:1.5px solid var(--border);border-radius:var(--radius-xl);padding:36px;">
+          <h3 style="font-family:var(--font-display);font-size:22px;font-weight:800;margin-bottom:22px;">Send Us a Message</h3>
+          <div class="grid grid-2">
+            <div class="form-group"><label class="form-label">Full Name <span class="req">*</span></label><input class="form-control" required placeholder="Your name"></div>
+            <div class="form-group"><label class="form-label">Email <span class="req">*</span></label><input class="form-control" type="email" required placeholder="Your email"></div>
+            <div class="form-group"><label class="form-label">Phone <span class="req">*</span></label><input class="form-control" type="tel" required placeholder="+91 XXXXX XXXXX"></div>
+            <div class="form-group"><label class="form-label">Subject</label><select class="form-select"><option>Select Subject</option><option>Product Inquiry</option><option>Technical Support</option><option>Partnership</option><option>Billing</option></select></div>
+          </div>
+          <div class="form-group"><label class="form-label">Message <span class="req">*</span></label><textarea class="form-control" rows="5" required placeholder="How can we help you?"></textarea></div>
+          <button class="btn btn-orange btn-lg btn-block" onclick="showToast('Message sent! We\'ll respond within 24 hours.','success')">📤 Send Message</button>
+        </div>
+      </div>
+    </div>
+  </section>
+</div><!-- /page-contact -->
+
+<!-- ========== FOOTER ========== -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;">
+          <div class="logo-icon">I</div>
+          <div class="logo-text">Indus<span>Mart</span></div>
+        </div>
+        <p>India's #1 B2B Industrial Marketplace. Connecting buyers with verified suppliers across all major industries. Quality products, best prices, timely delivery.</p>
+        <div class="social-links">
+          <a class="social-btn">f</a>
+          <a class="social-btn">in</a>
+          <a class="social-btn">🐦</a>
+          <a class="social-btn">▶</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-title">Industries</div>
+        <ul class="footer-links">
+          <li><a onclick="nav('categories','Construction')">Construction</a></li>
+          <li><a onclick="nav('categories','Manufacturing')">Manufacturing</a></li>
+          <li><a onclick="nav('categories','Agriculture')">Agriculture</a></li>
+          <li><a onclick="nav('categories','Power & Energy')">Power & Energy</a></li>
+          <li><a onclick="nav('categories','Automotive')">Automotive</a></li>
+          <li><a onclick="nav('categories','Mining')">Mining</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-title">Quick Links</div>
+        <ul class="footer-links">
+          <li><a onclick="nav('home')">Home</a></li>
+          <li><a onclick="nav('industries')">All Industries</a></li>
+          <li><a onclick="nav('products')">Products</a></li>
+          <li><a onclick="nav('testimonials')">Testimonials</a></li>
+          <li><a onclick="nav('contact')">Contact Us</a></li>
+          <li><a onclick="nav('inquiry')">Request Quote</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-title">Get In Touch</div>
+        <ul class="footer-links">
+          <li><a>📞 +91 98765 43210</a></li>
+          <li><a>✉️ info@indusmart.in</a></li>
+          <li><a>📍 Noida, UP 201001</a></li>
+          <li><a>🕐 Mon–Sat 9AM–7PM</a></li>
+        </ul>
+        <div style="margin-top:16px;">
+          <button class="btn-inquiry" style="padding:12px 24px;font-size:13px;" onclick="nav('inquiry')">📋 Request Quote</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="footer-bottom">
+      <div>© 2024 IndusMart. All rights reserved.</div>
+      <div style="display:flex;gap:20px;">
+        <a style="color:rgba(255,255,255,0.4);text-decoration:none;cursor:pointer;">Privacy Policy</a>
+        <a style="color:rgba(255,255,255,0.4);text-decoration:none;cursor:pointer;">Terms of Use</a>
+        <a style="color:rgba(255,255,255,0.4);text-decoration:none;cursor:pointer;">Sitemap</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Toast Container -->
+<div class="toast-container" id="toastContainer"></div>
+
+<script>
+/* ================================================================
+   DATA
+================================================================ */
+const INDUSTRIES = {
+  'Construction': {
+    icon: '🏗️',
+    count: '1,200+',
+    desc: '1,200+ Products • Cement, Steel, Bricks, Roofing & more',
+    categories: [
+      {name:'Cement & Concrete', icon:'🏗️', bg:'#E3F0FF', count:'150+', subs:['OPC Cement','PPC Cement','PSC Cement','White Cement','Ready Mix Concrete','Concrete Admixtures']},
+      {name:'Steel & Metal', icon:'🔩', bg:'#FEE2E2', count:'280+', subs:['TMT Bars','Structural Steel','MS Plates','Galvanized Sheets','Stainless Steel','Iron Rods']},
+      {name:'Bricks & Blocks', icon:'🧱', bg:'#FEF3C7', count:'120+', subs:['Red Bricks','Fly Ash Bricks','AAC Blocks','Interlocking Bricks','Concrete Blocks']},
+      {name:'Roofing', icon:'🏠', bg:'#DCFCE7', count:'80+', subs:['Metal Roofing','Corrugated Sheets','Bitumen Sheets','PVC Roofing','Polycarbonate Sheets']},
+      {name:'Paints & Coatings', icon:'🎨', bg:'#FCE7F3', count:'210+', subs:['Exterior Paint','Interior Paint','Epoxy Coating','Waterproof Paint','Anti-Rust Primer']},
+      {name:'Tools & Hardware', icon:'🔧', bg:'#EDE9FE', count:'400+', subs:['Power Tools','Hand Tools','Fasteners','Safety Equipment','Ladders & Scaffolding']},
+    ]
+  },
+  'Manufacturing': {
+    icon: '⚙️',
+    count: '800+',
+    desc: '800+ Products • Tools, Metal, Machinery',
+    categories: [
+      {name:'Power Tools', icon:'🔨', bg:'#E3F0FF', count:'95+', subs:['Drills','Grinders','Welding Machines','Cutting Tools','Compressors']},
+      {name:'Fasteners', icon:'🔩', bg:'#FEE2E2', count:'180+', subs:['Nuts & Bolts','Screws','Rivets','Washers','Anchors']},
+      {name:'Lubricants', icon:'🛢️', bg:'#FEF3C7', count:'60+', subs:['Engine Oil','Gear Oil','Grease','Hydraulic Oil','Cutting Fluid']},
+      {name:'Safety Equipment', icon:'🪖', bg:'#DCFCE7', count:'110+', subs:['Helmets','Safety Shoes','Gloves','Harness','Safety Glasses']},
+      {name:'Conveyors & Material Handling', icon:'📦', bg:'#FCE7F3', count:'70+', subs:['Belt Conveyors','Trolleys','Forklift Parts','Storage Racks']},
+      {name:'Measuring Tools', icon:'📏', bg:'#EDE9FE', count:'55+', subs:['Vernier Calipers','Micrometers','Gauges','Levels & Squares']},
+    ]
+  },
+  'Agriculture': {
+    icon: '🌾',
+    count: '400+',
+    desc: '400+ Products • Fertilizers, Seeds & Equipment',
+    categories: [
+      {name:'Fertilizers', icon:'🌱', bg:'#DCFCE7', count:'80+', subs:['DAP','Urea','NPK Fertilizers','Organic Manure','Micronutrients']},
+      {name:'Seeds', icon:'🌽', bg:'#FEF3C7', count:'60+', subs:['Hybrid Seeds','Vegetable Seeds','Fruit Seeds','Flower Seeds']},
+      {name:'Pesticides', icon:'🧪', bg:'#FEE2E2', count:'70+', subs:['Insecticides','Fungicides','Herbicides','Bio-Pesticides']},
+      {name:'Irrigation', icon:'💧', bg:'#E3F0FF', count:'90+', subs:['Drip Systems','Sprinklers','Pumps','PVC Pipes','Fittings']},
+      {name:'Farm Machinery', icon:'🚜', bg:'#EDE9FE', count:'50+', subs:['Tractors','Harvesters','Tillers','Sprayers','Ploughs']},
+    ]
+  },
+  'Power & Energy': {
+    icon: '⚡',
+    count: '600+',
+    desc: '600+ Products • Cables, Panels & Transformers',
+    categories: [
+      {name:'Cables & Wires', icon:'🔌', bg:'#FEF3C7', count:'140+', subs:['LT Cables','HT Cables','Armoured Cables','Control Cables','Fire Resistant Cables']},
+      {name:'Switchgear', icon:'🔲', bg:'#E3F0FF', count:'80+', subs:['MCBs','ACBs','MCCBs','Contactors','Relays']},
+      {name:'Transformers', icon:'⚙️', bg:'#EDE9FE', count:'40+', subs:['Distribution Transformers','Power Transformers','Dry Type Transformers']},
+      {name:'Meters & Instruments', icon:'📊', bg:'#DCFCE7', count:'60+', subs:['Energy Meters','Panel Meters','Current Transformers','Voltage Transformers']},
+      {name:'Solar & Renewable', icon:'☀️', bg:'#FEE2E2', count:'75+', subs:['Solar Panels','Inverters','Batteries','Solar Pumps','LED Lighting']},
+    ]
+  },
+  'Infrastructure': {
+    icon: '🏛️',
+    count: '500+',
+    desc: '500+ Products • Roads, Bridges & Civil Works',
+    categories: [
+      {name:'Pipes & Drainage', icon:'🔧', bg:'#E3F0FF', count:'95+', subs:['RCC Pipes','PVC Pipes','HDPE Pipes','DI Pipes','Manholes']},
+      {name:'Geotextiles', icon:'🧵', bg:'#FEF3C7', count:'40+', subs:['Woven Geotextile','Non-woven Geotextile','Geogrids','Geomembranes']},
+      {name:'Road Materials', icon:'🛣️', bg:'#DCFCE7', count:'60+', subs:['Bitumen','Aggregate','Kerb Stones','Road Marking Materials']},
+      {name:'Bridge Components', icon:'🌉', bg:'#EDE9FE', count:'45+', subs:['Bearings','Expansion Joints','Drainage Systems','Handrails']},
+    ]
+  },
+  'Oil & Gas': {
+    icon: '🛢️',
+    count: '300+',
+    desc: '300+ Products • Pipes, Fittings & Equipment',
+    categories: [
+      {name:'Pipeline Products', icon:'🔧', bg:'#E3F0FF', count:'90+', subs:['API Pipes','Line Pipes','Bends','Tees','Flanges']},
+      {name:'Valves', icon:'⚙️', bg:'#FEE2E2', count:'70+', subs:['Gate Valves','Ball Valves','Butterfly Valves','Check Valves','Safety Valves']},
+      {name:'Instrumentation', icon:'📊', bg:'#FEF3C7', count:'50+', subs:['Pressure Gauges','Flow Meters','Temperature Sensors','Level Transmitters']},
+    ]
+  },
+  'Automotive': {
+    icon: '🚗',
+    count: '450+',
+    desc: '450+ Products • Parts, Lubricants & Accessories',
+    categories: [
+      {name:'Engine Parts', icon:'⚙️', bg:'#E3F0FF', count:'100+', subs:['Pistons','Bearings','Gaskets','Filters','Crankshafts']},
+      {name:'Lubricants', icon:'🛢️', bg:'#FEF3C7', count:'60+', subs:['Engine Oil','Transmission Oil','Brake Fluid','Coolant']},
+      {name:'Body Parts', icon:'🚗', bg:'#DCFCE7', count:'80+', subs:['Bumpers','Hoods','Doors','Side Mirrors','Windshields']},
+    ]
+  },
+  'Mining': {
+    icon: '⛏️',
+    count: '250+',
+    desc: '250+ Products • Equipment & Safety Gear',
+    categories: [
+      {name:'Mining Equipment', icon:'⛏️', bg:'#E3F0FF', count:'70+', subs:['Drilling Equipment','Blasting Materials','Conveyors','Crushers']},
+      {name:'Safety Equipment', icon:'🪖', bg:'#DCFCE7', count:'80+', subs:['Helmets','Self-Rescuers','Gas Detectors','Safety Lamps','Breathing Apparatus']},
+      {name:'Electrical for Mining', icon:'⚡', bg:'#FEF3C7', count:'60+', subs:['Flameproof Motors','Mining Cables','Explosion-Proof Fittings']},
+    ]
+  },
+  'Water Treatment': {
+    icon: '💧',
+    count: '180+',
+    desc: '180+ Products • Filtration & Treatment Systems',
+    categories: [
+      {name:'Filtration', icon:'💧', bg:'#E3F0FF', count:'60+', subs:['Sand Filters','Carbon Filters','Membrane Filters','Cartridge Filters']},
+      {name:'Chemical Treatment', icon:'🧪', bg:'#DCFCE7', count:'50+', subs:['Coagulants','Flocculants','Disinfectants','pH Adjusters']},
+      {name:'Pumps & Blowers', icon:'⚙️', bg:'#FEF3C7', count:'45+', subs:['Submersible Pumps','Centrifugal Pumps','Air Blowers','Dosing Pumps']},
+    ]
+  }
+};
+
+const SAMPLE_PRODUCTS = [
+  {name:'UltraTech OPC 53 Grade', brand:'UltraTech', price:'₹450', unit:'Bag', rating:'★★★★★', reviews:1100, icon:'🏗️'},
+  {name:'ACC OPC 53 Grade', brand:'ACC', price:'₹440', unit:'Bag', rating:'★★★★★', reviews:920, icon:'🏗️'},
+  {name:'Ambuja OPC 53 Grade', brand:'Ambuja', price:'₹460', unit:'Bag', rating:'★★★★★', reviews:810, icon:'🏗️'},
+  {name:'Shree Cement OPC 53', brand:'Shree Cement', price:'₹435', unit:'Bag', rating:'★★★★☆', reviews:530, icon:'🏗️'},
+  {name:'Dalmia OPC 43 Grade', brand:'Dalmia', price:'₹410', unit:'Bag', rating:'★★★★☆', reviews:380, icon:'🏗️'},
+  {name:'JK Super Cement OPC', brand:'JK Cement', price:'₹420', unit:'Bag', rating:'★★★★☆', reviews:290, icon:'🏗️'},
+];
+
+/* ================================================================
+   NAVIGATION STATE
+================================================================ */
+let currentIndustry = 'Construction';
+let currentCategory = 'Cement & Concrete';
+
+function showPage(pageId){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  const pg = document.getElementById('page-'+pageId);
+  if(pg){ pg.classList.add('active'); window.scrollTo({top:0,behavior:'smooth'}); }
+}
+
+function nav(page, ...args){
+  switch(page){
+    case 'home':
+      showPage('home'); break;
+    case 'industries':
+      showPage('industries'); break;
+    case 'categories':
+      loadCategoriesPage(args[0]||currentIndustry);
+      showPage('categories'); break;
+    case 'products':
+      loadProductsPage(args[0]||currentCategory, args[1]||currentIndustry);
+      showPage('products'); break;
+    case 'product-detail':
+      loadProductDetail(args[0],args[1],args[2],args[3]);
+      showPage('product-detail'); break;
+    case 'inquiry':
+      loadInquiryPage(args[0],args[1],args[2]);
+      showPage('inquiry'); break;
+    case 'testimonials':
+      showPage('testimonials'); break;
+    case 'contact':
+      showPage('contact'); break;
+  }
+}
+
+/* ================================================================
+   CATEGORIES PAGE LOADER
+================================================================ */
+function loadCategoriesPage(industryName){
+  currentIndustry = industryName;
+  const data = INDUSTRIES[industryName];
+  if(!data) return;
+
+  document.getElementById('bc-industry').textContent = industryName;
+  document.getElementById('sidebar-industry-name').textContent = industryName;
+  document.getElementById('cat-page-title').textContent = industryName+' Industry';
+  document.getElementById('cat-page-subtitle').textContent = (data.count)+' Products • '+industryName+' solutions';
+
+  // Sidebar nav
+  const navList = document.getElementById('cat-nav-list');
+  navList.innerHTML = data.categories.map((cat,i)=>`
+    <li class="cat-nav-item"><a class="${i===0?'active':''}" onclick="loadProductsPage('${cat.name}','${industryName}');showPage('products');">
+      ${cat.name} <span class="item-count">${cat.count}</span>
+    </a></li>
+  `).join('');
+
+  // Category cards
+  const grid = document.getElementById('cat-cards-grid');
+  grid.innerHTML = data.categories.map(cat=>`
+    <a class="cat-card" style="text-align:left;display:flex;gap:16px;align-items:center;padding:20px;"
+       onclick="nav('products','${cat.name}','${industryName}')">
+      <div class="cat-card-icon" style="background:${cat.bg};width:72px;height:72px;flex-shrink:0;font-size:32px;">${cat.icon}</div>
+      <div>
+        <div class="cat-card-name" style="font-size:15.5px;">${cat.name}</div>
+        <div class="cat-card-count">${cat.count} Products</div>
+        <div style="display:flex;flex-wrap:wrap;gap:4px;margin-top:8px;">
+          ${cat.subs.slice(0,3).map(s=>`<span class="badge badge-blue" style="font-size:10px;">${s}</span>`).join('')}
+        </div>
+      </div>
+    </a>
+  `).join('');
+}
+
+/* ================================================================
+   PRODUCTS PAGE LOADER
+================================================================ */
+function loadProductsPage(catName, industryName){
+  currentCategory = catName;
+  currentIndustry = industryName || currentIndustry;
+
+  const iData = INDUSTRIES[currentIndustry];
+  const catData = iData ? iData.categories.find(c=>c.name===catName) : null;
+
+  // Breadcrumb
+  document.getElementById('bc-prod-industry').textContent = currentIndustry;
+  document.getElementById('bc-prod-industry').onclick = ()=>nav('categories', currentIndustry);
+  document.getElementById('bc-prod-cat').textContent = catName;
+  document.getElementById('prod-page-title').textContent = catName;
+
+  // Subcats sidebar
+  const subcatsList = document.getElementById('subcats-list');
+  if(catData){
+    subcatsList.innerHTML = catData.subs.map((s,i)=>`
+      <li class="cat-nav-item"><a class="${i===0?'active':''}" onclick="showToast('Loading ${s}…','info')">
+        ${s} <span class="item-count">${Math.floor(Math.random()*40+10)}</span>
+      </a></li>
+    `).join('');
+  }
+
+  // Product grid - use sample products with dynamic names
+  const grid = document.getElementById('prod-listing-grid');
+  grid.innerHTML = SAMPLE_PRODUCTS.map(p=>`
+    <div class="product-card" onclick="nav('product-detail','${p.name}','${p.brand}','${p.price}','${p.unit}')">
+      <div class="pc-img">${p.icon}<div class="pc-img-bg">${p.icon}</div>
+        <div class="pc-actions">
+          <button class="pc-action-btn" onclick="event.stopPropagation();showToast('Saved!','success')">🤍</button>
+          <button class="pc-action-btn" onclick="event.stopPropagation();showToast('Added to compare','info')">⚖️</button>
+        </div>
+      </div>
+      <div class="pc-body">
+        <div class="pc-brand">${p.brand}</div>
+        <div class="pc-name">${p.name}</div>
+        <div class="pc-rating"><span class="stars">${p.rating}</span> (${p.reviews.toLocaleString()})</div>
+        <div class="pc-price">${p.price} <span>/ ${p.unit}</span></div>
+      </div>
+      <div class="pc-footer">
+        <button class="btn-quote-sm" onclick="event.stopPropagation();nav('inquiry','${p.name}','${p.price}','${p.unit}')">📋 Request Quote</button>
+        <button class="btn-detail-sm" onclick="event.stopPropagation();nav('product-detail','${p.name}','${p.brand}','${p.price}','${p.unit}')">👁</button>
+      </div>
+    </div>
+  `).join('');
+}
+
+/* ================================================================
+   PRODUCT DETAIL LOADER
+================================================================ */
+function loadProductDetail(name, brand, price, unit){
+  if(!name) return;
+  const icons = {'🏗️':['Cement','Brick','Concrete'],'🔩':['Steel','Metal','Iron'],'⚡':['Electric','Wire','Cable'],'💧':['Pipe','Water','Plumb'],'🔧':['Tool','Hardware','Wrench'],'🎨':['Paint','Coat'],'🌾':['Agri','Fertil','Seed']};
+  let icon = '🏗️';
+  for(const [k,keywords] of Object.entries(icons)){
+    if(keywords.some(kw=>(name+' '+(brand||'')).toLowerCase().includes(kw.toLowerCase()))) { icon = k; break; }
+  }
+
+  document.getElementById('bc-detail-industry').textContent = currentIndustry;
+  document.getElementById('bc-detail-industry').onclick = ()=>nav('categories',currentIndustry);
+  document.getElementById('bc-detail-cat').textContent = currentCategory;
+  document.getElementById('bc-detail-cat').onclick = ()=>nav('products',currentCategory,currentIndustry);
+  document.getElementById('bc-detail-prod').textContent = name;
+  document.getElementById('detail-main-img').textContent = icon;
+  document.getElementById('detail-title').textContent = name;
+  document.getElementById('detail-brand').textContent = brand||'—';
+  document.getElementById('detail-cat-badge').textContent = currentCategory;
+  if(price){
+    document.getElementById('detail-price').innerHTML = price+' <span>/ '+(unit||'Unit')+' (incl. GST)</span>';
+    document.getElementById('detail-price-val').textContent = price;
+  }
+}
+
+/* ================================================================
+   INQUIRY PAGE LOADER
+================================================================ */
+function loadInquiryPage(name, price, unit){
+  if(!name) return;
+  const icons = {'🏗️':['Cement','Brick'],'🔩':['Steel','Metal','Iron','TMT'],'⚡':['Electric','Wire','Cable'],'💧':['Pipe','Water'],'🔧':['Tool'],'🎨':['Paint'],'🌾':['Agri','Fertil']};
+  let icon = '🏗️';
+  for(const [k,kws] of Object.entries(icons)){
+    if(kws.some(kw=>name.toLowerCase().includes(kw.toLowerCase()))){ icon=k; break; }
+  }
+  document.getElementById('inq-product-icon').textContent = icon;
+  document.getElementById('inq-product-name').textContent = name;
+  if(price){
+    document.getElementById('inq-product-price').innerHTML = price+' <span style="font-size:14px;font-weight:500;color:var(--text-muted);font-family:var(--font-ui);">/ '+(unit||'Unit')+'</span>';
+  }
+}
+
+/* ================================================================
+   TABS
+================================================================ */
+function switchTab(tabId, btn){
+  document.querySelectorAll('.tab-content').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById(tabId).classList.add('active');
+  btn.classList.add('active');
+}
+
+/* ================================================================
+   TESTIMONIAL FILTER
+================================================================ */
+function filterTestimonials(industry, el){
+  document.querySelectorAll('.tag').forEach(t=>t.classList.remove('active'));
+  el.classList.add('active');
+  document.querySelectorAll('[data-industry]').forEach(card=>{
+    card.style.display = (industry==='all' || card.dataset.industry===industry) ? '' : 'none';
+  });
+}
+
+/* ================================================================
+   INQUIRY SUBMIT
+================================================================ */
+function submitInquiry(){
+  showToast('✅ Inquiry submitted! We\'ll contact you within 24 hours.','success');
+  setTimeout(()=>nav('home'), 2200);
+}
+
+/* ================================================================
+   TOAST
+================================================================ */
+function showToast(msg, type='info'){
+  const c = document.getElementById('toastContainer');
+  const t = document.createElement('div');
+  t.className = `toast toast-${type}`;
+  t.innerHTML = (type==='success'?'✅':'ℹ️')+' '+msg;
+  c.appendChild(t);
+  setTimeout(()=>{ t.style.opacity='0'; t.style.transform='translateX(100%)'; t.style.transition='all 0.35s ease'; setTimeout(()=>t.remove(),350); }, 3000);
+}
+
+/* ================================================================
+   THUMB CLICK
+================================================================ */
+document.querySelectorAll('.thumb').forEach(t=>{
+  t.addEventListener('click',function(){
+    document.querySelectorAll('.thumb').forEach(th=>th.classList.remove('active'));
+    this.classList.add('active');
+    const mainImg = document.querySelector('.main-img');
+    if(mainImg) mainImg.textContent = this.textContent;
+  });
+});
+
+/* ================================================================
+   INIT
+================================================================ */
+// Pre-load categories for Construction so nav links work
+loadCategoriesPage('Construction');
+loadProductsPage('Cement & Concrete','Construction');
+</script>
+</body>
+</html>
